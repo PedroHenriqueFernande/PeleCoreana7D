@@ -1,13 +1,13 @@
 import { Sparkles, Clock, Leaf, Heart, Star, Gift, Shield, CheckCircle2, ChevronRight } from 'lucide-react';
-import antesDepois from './assets/Antes e Depois 1.jpg';
-import fotoBonus1 from './assets/Foto do Bonus 1.png';
-import fotoBonus2 from './assets/Foto do Bonus 2.png';
-import fotoProduto1 from './assets/Foto do Produto 1.png';
-import fotoProduto2 from './assets/Foto do Produto 2.png';
-import fotoProduto3 from './assets/Foto do Produto 3.png';
-import antesDepois2 from './assets/Antes e Depois 2.png';
-import antesDepois3 from './assets/Antes e Depois 3.jpg';
-import antesDepois4 from './assets/Antes e Depois 4.png';
+import antesDepois from './assets/Antes-e-Depois-1.jpg';
+import fotoBonus1 from './assets/Foto-do-Bonus-1.png';
+import fotoBonus2 from './assets/Foto-do-Bonus-2.png';
+import fotoProduto1 from './assets/Foto-do-Produto-1.png';
+import fotoProduto2 from './assets/Foto-do-Produto-2.png';
+import fotoProduto3 from './assets/Foto-do-Produto-3.png';
+import antesDepois2 from './assets/Antes-e-Depois-2.png';
+import antesDepois3 from './assets/Antes-e-Depois-3.jpg';
+import antesDepois4 from './assets/Antes-e-Depois-4.png';
 
 function App() {
   const redirectToCheckout = () => {
