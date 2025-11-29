@@ -23,7 +23,7 @@ function App() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
           <div className="flex items-center gap-2">
             <Sparkles className="w-6 h-6 text-gold-400 text-shadow-white" />
-            <span className="font-serif text-xl font-semibold text-gray-800">Segredos<br />da Pele <br /> </span>
+            <span className="font-serif text-xl font-semibold text-gray-800 text-center leading-tight">Segredos<br />da Pele</span>
           </div>
           <button
             onClick={redirectToCheckout}
@@ -70,7 +70,15 @@ function App() {
           <div className="text-center space-y-12">
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
               Conheça Seu Novo Ritual de Beleza!
-            </h2>            <div className="relative h-96 my-8 flex justify-center items-center">
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mt-6">
+              O Método Pele Coreana 7D é uma máscara facial simples, rápida e altamente eficaz, revelada por coreanas reconhecidas mundialmente pela pele firme, lisa e naturalmente jovem.
+              <br /><br />
+              Você aprende um processo fácil, seguro e totalmente guiado, que pode ser feito em casa em poucos minutos por dia. O método foi criado para reduzir marcas de expressão, melhorar a firmeza da pele e devolver o brilho que você sente que perdeu com o tempo.
+              <br /><br />
+              É um ritual prático, acessível e pensado para mulheres reais, que querem resultados visíveis sem depender de rotinas longas ou produtos caros.
+            </p>
+            <div className="relative h-96 my-8 flex justify-center items-center">
               <img src={fotoProduto1} alt="Produto 1" className="absolute w-auto h-full object-contain transform -rotate-12 -translate-x-8 hover:z-10 hover:scale-110 transition-transform duration-300" />
               <img src={fotoProduto2} alt="Produto 2" className="absolute w-auto h-full object-contain transform pointer-events-none" />
               <img src={fotoProduto3} alt="Produto 3" className="absolute w-auto h-full object-contain transform rotate-12 translate-x-8 hover:z-10 hover:scale-110 transition-transform duration-300" />
