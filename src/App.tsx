@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gold-100 z-50 shadow-sm">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-center items-center gap-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
           <div className="flex items-center gap-2">
             <Sparkles className="w-6 h-6 text-gold-400 text-shadow-white" />
             <span className="font-serif text-xl font-semibold text-gray-800">Segredos<br />da Pele <br /> </span>
@@ -126,7 +126,7 @@ function App() {
 
             <div className="bg-gold-50 rounded-2xl p-8 sm:p-12 space-y-6">
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-8">
-                Este Método Foi Feito Para Você!
+                Este Método Foi Feito Para Você?
               </h2>
               <div className="flex flex-col items-center gap-4 text-center">
                 <div className="flex-shrink-0 w-12 h-12 bg-gold-300 rounded-full flex items-center justify-center">
@@ -167,7 +167,7 @@ function App() {
               Como esta técnica funciona?
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Esta é a mesma técnica usada há gerações por mulheres coreanas, agora disponível para brasileiras que se recusam a envelhecer. O método acelera a regeneração celular com ativos naturais e cria um efeito tensor imediato, suavizando marcas de expressão sem depender de cremes caros ou promessas de influenciadores. São apenas 5 minutos por dia para enganar o espelho, os anos e quem duvidava que você poderia rejuvenescer.
+              Esta é a técnica inventada por mulheres coreanas, agora disponível para brasileiras que se recusam a envelhecer. O método acelera a regeneração celular com ativos naturais e cria um efeito tensor imediato, suavizando marcas de expressão sem depender de cremes caros ou promessas de influenciadores. São apenas 5 minutos por dia para enganar o espelho, os anos e quem duvidava que você poderia rejuvenescer.
             </p>
           </div>
         </section>
@@ -265,6 +265,10 @@ function App() {
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-gold-400 text-shadow-white" />
                   <span>Acesso Imediato</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Shield className="w-5 h-5 text-gold-400 text-shadow-white" />
+                  <span>Garantia de 30 Dias</span>
                 </div>
               </div>
             </div>
