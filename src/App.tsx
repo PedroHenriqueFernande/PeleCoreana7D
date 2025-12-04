@@ -1,16 +1,38 @@
-import { Sparkles, Clock, Leaf, Heart, Star, Gift, Shield, CheckCircle2, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+import { Sparkles, Clock, Leaf, Heart, Star, Shield, CheckCircle2, ChevronRight, ChevronLeft, Eye, TrendingDown, Ban, Cloud, AlertTriangle, Smile, Droplets, Zap, Book, Calendar, Timer } from 'lucide-react';
 import antesDepois from './assets/Antes-e-Depois-1.jpg';
 import fotoBonus1 from './assets/Foto-do-Bonus-1.png';
 import fotoBonus2 from './assets/Foto-do-Bonus-2.png';
-import fotoProduto1 from './assets/Foto-do-Produto-1.png';
-import fotoProduto2 from './assets/Foto-do-Produto-2.png';
-import fotoProduto3 from './assets/Foto-do-Produto-3.png';
 import antesDepois2 from './assets/Antes-e-Depois-2.png';
 import antesDepois3 from './assets/Antes-e-Depois-3.jpg';
 import antesDepois4 from './assets/Antes-e-Depois-4.png';
 import depoimento from './assets/depoimento.png';
+import fotoProduto1 from './assets/Foto-do-Produto-1.png';
+import fotoProduto2 from './assets/Foto-do-Produto-2.png';
+import fotoProduto3 from './assets/Foto-do-Produto-3.png';
 
 function App() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const beforeAfterImages = [
+    antesDepois,
+    antesDepois2,
+    antesDepois3,
+    antesDepois4,
+    '/4 d.png',
+    '/5d.png',
+    '/6d.png'
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % beforeAfterImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + beforeAfterImages.length) % beforeAfterImages.length);
+  };
+
   const redirectToCheckout = () => {
     window.location.href = 'https://pay.cakto.com.br/7cn5uvv_616238';
   };
@@ -19,251 +41,738 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <main className="pt-8">
-        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+      <main>
+        <section className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h1 className="font-oswald text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-              Novo Método Coreano Está Eliminando Marcas de Expressão em 7 Dias. Sem Cremes Caros, Sem Botox e Usando Só o Que Você Já Tem em Casa!
+              Dê Um Choque de Juventude na Sua Pele em 7 Dias com Este Método
             </h1>
 
-            <img src={antesDepois} alt="Antes e Depois" className="w-full max-w-2xl mx-auto rounded-2xl shadow-lg my-8" />
-
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Essa máscara facial coreana virou febre entre especialistas de skincare no mundo todo  e você só precisa de 5 minutos por dia e ingredientes simples e de facil acesso.
+              Este é o ritual importado diretamente do país mais vaidoso do mundo que suaviza rugas, devolve firmeza e traz o glow natural de pele jovem, usando apenas ingredientes básicos que você tem em casa e um protocolo de 5 minutos por dia.
             </p>
+
+            {/* VSL Player Placeholder */}
+            <div className="w-full max-w-md mx-auto aspect-[9/16] bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl flex items-center justify-center my-8 border-2 border-gold-200">
+              <div className="text-center space-y-4">
+                <div className="w-20 h-20 mx-auto bg-gold-400 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-pointer">
+                  <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+                <p className="text-white text-sm font-medium">Inserir VSL aqui</p>
+              </div>
+            </div>
 
             <div className="pt-4">
               <button
                 onClick={redirectToCheckout}
                 className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
               >
-                <span className="flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 mr-2" />
-                  APAGAR MINHAS IMPERFEIÇÕES AGORA!
-                </span>
+                QUERO REJUVENESCER MINHA PELE
               </button>
+              <p className="text-sm text-gray-600 mt-3">Apenas R$ 29,90 — acesso imediato ao Método 7D™</p>
             </div>
 
-            <img src={depoimento} alt="Depoimento" className="w-full max-w-2xl mx-auto rounded-2xl shadow-lg mt-8" />
-          </div>
-        </section>
-
-        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-          <div className="text-center space-y-12">
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
-              Conheça Seu Novo Ritual de Beleza!
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mt-6">
-              O Método Pele Coreana 7D é uma máscara facial simples, rápida e altamente eficaz, revelada por coreanas reconhecidas mundialmente pela pele firme, lisa e naturalmente jovem.
-              <br /><br />
-              Você aprende um processo fácil, seguro e totalmente guiado, que pode ser feito em casa em poucos minutos por dia. O método foi criado para reduzir marcas de expressão, melhorar a firmeza da pele e devolver o brilho que você sente que perdeu com o tempo.
-              <br /><br />
-              É um ritual prático, acessível e pensado para mulheres reais, que querem resultados visíveis sem depender de rotinas longas ou produtos caros.
-            </p>
-            <div className="relative h-96 my-8 flex justify-center items-center">
-              <img src={fotoProduto1} alt="Produto 1" className="absolute w-auto h-full object-contain transform -rotate-12 -translate-x-8 hover:z-10 hover:scale-110 transition-transform duration-300" />
-              <img src={fotoProduto2} alt="Produto 2" className="absolute w-auto h-full object-contain transform pointer-events-none" />
-              <img src={fotoProduto3} alt="Produto 3" className="absolute w-auto h-full object-contain transform rotate-12 translate-x-8 hover:z-10 hover:scale-110 transition-transform duration-300" />
-            </div>
-
-            <div className="relative bg-gradient-to-br from-gold-50 via-white to-gold-50 rounded-3xl p-8 sm:p-12 border-2 border-gold-200 shadow-xl">
-              <div className="text-center space-y-6">
+            {/* Before/After Transformation Carousel Section */}
+            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gold-50">
+              <div className="max-w-5xl mx-auto text-center space-y-8">
+                {/* Main Title */}
                 <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
-                  Benefícios Comprovados
+                  Veja a Transformação Real Que o Método 7D™ Proporciona
                 </h2>
 
-                <div className="grid grid-cols-1 gap-4 text-center max-w-2xl mx-auto pt-4">
-                  {[
-                    {
-                      icon: Sparkles,
-                      title: 'Redução Visível das Marcas de Expressão em 7 Dias!',
-                    },
-                    {
-                      icon: Heart,
-                      title: 'Hidratação Profunda',
-                    },
-                    {
-                      icon: Leaf,
-                      title: 'Ingredientes Naturais',
-                    },
-                    {
-                      icon: Clock,
-                      title: 'Adaptado à sua Rotina!',
-                    }
-                  ].map((benefit, index) => (
-                    <div key={index} className="flex items-center justify-center gap-3">
-                      <div className="w-6 h-6 bg-gold-300 rounded-full flex items-center justify-center flex-shrink-0">
-                        <benefit.icon className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="text-gray-700 font-medium">{benefit.title}</span>
-                    </div>
-                  ))}
+                {/* Subheadline */}
+                <div className="space-y-2">
+                  <p className="text-xl font-semibold text-gray-800">Mulheres reais. Resultados reais.</p>
+                  <p className="text-lg text-gray-600">Cada imagem abaixo é uma aplicação de 7 dias do ritual coreano.</p>
+                </div>
+
+                {/* Carousel */}
+                <div className="relative max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto">
+                  {/* Main Image Container */}
+                  <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                    <img
+                      src={beforeAfterImages[currentSlide]}
+                      alt={`Transformação ${currentSlide + 1}`}
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
+
+                  {/* Navigation Arrows */}
+                  <button
+                    onClick={prevSlide}
+                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+                    aria-label="Imagem anterior"
+                  >
+                    <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" />
+                  </button>
+
+                  <button
+                    onClick={nextSlide}
+                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+                    aria-label="Próxima imagem"
+                  >
+                    <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" />
+                  </button>
+
+                  {/* Dots Indicator */}
+                  <div className="flex justify-center gap-2 mt-6">
+                    {beforeAfterImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentSlide(index)}
+                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${currentSlide === index
+                          ? 'bg-gold-400 w-8'
+                          : 'bg-gray-300 hover:bg-gray-400'
+                          }`}
+                        aria-label={`Ir para imagem ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Micro Headline */}
+                <p className="text-lg sm:text-xl font-semibold text-gray-800 max-w-3xl mx-auto pt-4">
+                  Pele visivelmente mais jovem em 7 dias. Sem procedimentos, sem cremes caros.
+                </p>
+
+                {/* CTA Button */}
+                <div className="pt-4">
+                  <button
+                    onClick={redirectToCheckout}
+                    className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
+                  >
+                    QUERO REJUVENESCER MINHA PELE
+                  </button>
                 </div>
               </div>
+            </section>
+
+          </div>
+        </section>
+
+        {/* Pain Points Section - Você Se Reconhece Nisso? */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <div className="text-center space-y-12">
+            {/* Title */}
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
+              Você sente sua pele cada vez mais velha?
+            </h2>
+
+            {/* Subheadline */}
+            <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              As rugas e a perda de firmeza vão aparecendo aos poucos… até que um dia você olha no espelho e percebe que não dá mais para ignorar.
+            </p>
+
+            {/* Pain Points List */}
+            <div className="space-y-8 text-left max-w-2xl mx-auto">
+              {[
+                {
+                  icon: Eye,
+                  title: 'A cada ano, as linhas ao redor dos olhos ficam mais evidentes.',
+                  desc: 'Você tenta esconder com maquiagem, mas a textura só piora.'
+                },
+                {
+                  icon: TrendingDown,
+                  title: 'A firmeza da pele não é mais a mesma.',
+                  desc: 'O contorno do rosto parece "cair" um pouco mais a cada foto.'
+                },
+                {
+                  icon: Ban,
+                  title: 'Os cremes caros não entregam o que prometem.',
+                  desc: 'Você aplica por semanas e nada realmente muda.'
+                },
+                {
+                  icon: Cloud,
+                  title: 'A pele está ficando sem brilho, sem viço, sem vida.',
+                  desc: 'E isso afeta diretamente sua autoestima.'
+                },
+                {
+                  icon: Clock,
+                  title: 'Você sente que está envelhecendo mais rápido do que deveria.',
+                  desc: 'E isso te deixa frustrada como se nada funcionasse.'
+                },
+                {
+                  icon: AlertTriangle,
+                  title: 'E o pior: quanto mais tempo passar, mais difícil será reverter.',
+                  desc: 'As rugas não esperam. Elas aprofundam.'
+                }
+              ].map((item, index) => (
+                <div key={index} className="flex gap-4 items-start p-4 rounded-xl hover:bg-gold-50/50 transition-colors">
+                  <div className="flex-shrink-0 w-10 h-10 bg-gold-100 rounded-full flex items-center justify-center mt-1">
+                    <item.icon className="w-5 h-5 text-gold-500" />
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="font-bold text-gray-900 text-lg">{item.title}</h3>
+                    <p className="text-gray-500 leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            <div className="pt-4">
+            {/* Micro Headline */}
+            <div className="space-y-6 pt-4">
+              <p className="text-xl font-bold text-gray-800">
+                Mas você não precisa aceitar isso, existe uma forma real de reverter esse processo.
+              </p>
+
+              {/* CTA Button */}
               <button
                 onClick={redirectToCheckout}
                 className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
               >
-                <span className="flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 mr-2" />
-                  APAGAR MINHAS IMPERFEIÇÕES AGORA!
-                </span>
+                QUERO REJUVENESCER MINHA PELE
               </button>
             </div>
+          </div>
+        </section>
 
-            <div className="bg-gold-50 rounded-2xl p-8 sm:p-12 space-y-6">
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-8">
-                Este Método Foi Feito Para Você?
-              </h2>
-              <div className="flex flex-col items-center gap-4 text-center">
-                <div className="flex-shrink-0 w-12 h-12 bg-gold-300 rounded-full flex items-center justify-center">
-                  <CheckCircle2 className="w-6 h-6 text-white" />
+        {/* Benefits Section - O Que Vai Acontecer Com Sua Pele */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gold-50 max-w-4xl mx-auto">
+          <div className="text-center space-y-12">
+            {/* Title */}
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
+              O Que Vai Acontecer Com Sua Pele Nos Próximos 7 Dias
+            </h2>
+
+            {/* Subheadline */}
+            <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              Quando você aplica o ritual coreano corretamente, os resultados são inevitáveis, mesmo se você já tentou de tudo.
+            </p>
+
+            {/* Benefits List */}
+            <div className="space-y-8 text-left max-w-2xl mx-auto">
+              {[
+                {
+                  icon: Sparkles,
+                  title: 'Rugas suavizadas e linhas finas menos visíveis',
+                  desc: 'O ritual estimula colágeno natural e "preenche" a pele de dentro para fora.'
+                },
+                {
+                  icon: Heart,
+                  title: 'Firmeza renovada no contorno do rosto',
+                  desc: 'As técnicas coreanas deixam a pele mais sustentada e com aspecto mais jovem.'
+                },
+                {
+                  icon: Zap,
+                  title: 'Glow coreano imediato — pele iluminada e viva',
+                  desc: 'A fórmula de arroz + mel ativa o brilho natural da pele.'
+                },
+                {
+                  icon: Star,
+                  title: 'Textura drasticamente mais lisa',
+                  desc: 'Poros mais fechados, superfície mais uniforme e toque mais macio.'
+                },
+                {
+                  icon: Eye,
+                  title: 'Olhar rejuvenescido e mais descansado',
+                  desc: 'Linhas ao redor dos olhos ficam menos marcadas em poucos dias.'
+                },
+                {
+                  icon: Droplets,
+                  title: 'Pele nutrida, hidratada e com aparência mais saudável',
+                  desc: 'Tudo usando ingredientes simples, sem química agressiva, sem cremes caros.'
+                },
+                {
+                  icon: Smile,
+                  title: 'Autoestima lá em cima',
+                  desc: 'Quando sua pele rejuvenesce, seu rosto muda… e você também muda.'
+                }
+              ].map((item, index) => (
+                <div key={index} className="flex gap-4 items-start p-4 rounded-xl hover:bg-white/80 transition-colors">
+                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-gold-300 to-gold-400 rounded-full flex items-center justify-center mt-1 shadow-md">
+                    <item.icon className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="font-bold text-gray-900 text-lg">{item.title}</h3>
+                    <p className="text-gray-500 leading-relaxed">{item.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-xl text-gray-900 mb-2">Funciona para qualquer tipo de pele?</h3>
-                  <p className="text-gray-700 leading-relaxed">Sim! O método foi desenvolvido para se adaptar a todos os tipos de pele.</p>
+              ))}
+            </div>
+
+            {/* Micro Headline */}
+            <div className="space-y-6 pt-4">
+              <p className="text-xl font-bold text-gray-800">
+                Seu rosto começa a transformar, em 7 dias você já sente a diferença no espelho.
+              </p>
+
+              {/* CTA Button */}
+              <button
+                onClick={redirectToCheckout}
+                className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
+              >
+                QUERO REJUVENESCER MINHA PELE
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Urgency Section - Headline + Urgência */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <div className="text-center space-y-8">
+            {/* Main Headline */}
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
+              A Cada Dia Que Passa, Suas Rugas Aprofundam. Hoje Você Pode Começar a Reverter Isso.
+            </h2>
+
+            {/* Subheadline */}
+            <p className="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
+              O Método Pele Coreana 7D™ está disponível por tempo limitado de <span className="text-red-600 line-through decoration-red-600 decoration-2 font-bold">R$ 229,90</span> por apenas <span className="font-bold text-gold-500">R$ 29,90</span>.
+              <br />
+              Aproveite enquanto a oferta está liberada.
+            </p>
+
+            {/* Urgency Box */}
+            <div className="bg-gradient-to-br from-red-50 to-orange-50 border-2 border-red-200 rounded-2xl p-8 max-w-2xl mx-auto shadow-lg">
+              <div className="flex flex-col items-center gap-4">
+                {/* Clock Icon */}
+                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center shadow-md animate-pulse">
+                  <Clock className="w-8 h-8 text-white" />
+                </div>
+
+                {/* Urgency Messages */}
+                <div className="space-y-3 text-center">
+                  <p className="text-lg font-bold text-red-700">
+                    "Oferta ativa somente enquanto este aviso estiver visível."
+                  </p>
+                  <p className="text-base font-semibold text-orange-700">
+                    "Preço pode voltar ao normal a qualquer momento."
+                  </p>
                 </div>
               </div>
+            </div>
 
-              <div className="flex flex-col items-center gap-4 text-center">
-                <div className="flex-shrink-0 w-12 h-12 bg-gold-300 rounded-full flex items-center justify-center">
-                  <CheckCircle2 className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-xl text-gray-900 mb-2">Posso fazer com ingredientes comuns?</h3>
-                  <p className="text-gray-700 leading-relaxed">Com certeza! Todos os ingredientes são fáceis de encontrar, e você provavelmente já tem tudo em casa.</p>
-                </div>
-              </div>
+            {/* CTA Button */}
+            <div className="space-y-3 pt-4">
+              <button
+                onClick={redirectToCheckout}
+                className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-8 py-4 rounded-full font-bold text-xl hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
+              >
+                QUERO REJUVENESCER MINHA PELE AGORA
+              </button>
+              <p className="text-sm text-gray-600">
+                (Acesso imediato ao Método 7D™ por apenas R$ 29,90)
+              </p>
+            </div>
+          </div>
+        </section>
 
-              <div className="flex flex-col items-center gap-4 text-center">
-                <div className="flex-shrink-0 w-12 h-12 bg-gold-300 rounded-full flex items-center justify-center">
-                  <CheckCircle2 className="w-6 h-6 text-white" />
+        {/* Identification Section - Este Método é Para Você */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gold-50 to-white max-w-4xl mx-auto">
+          <div className="text-center space-y-12">
+            {/* Title */}
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
+              Este Método é Para Você se Deseja…
+            </h2>
+
+            {/* Subheadline */}
+            <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              Se você se encaixa em pelo menos 2 desses pontos, o Método Pele Coreana 7D™ foi feito exatamente para o seu tipo de pele e para o seu momento.
+            </p>
+
+            {/* Identification List */}
+            <div className="space-y-6 text-left max-w-2xl mx-auto">
+              {[
+                {
+                  title: 'Reduzir rugas e linhas finas visíveis em poucos dias',
+                  desc: 'Sem depender de cremes caros, procedimentos ou promessas vazias.'
+                },
+                {
+                  title: 'Recuperar a firmeza do rosto e o contorno natural da pele',
+                  desc: 'Especialmente se você sente que sua pele "caiu" nos últimos anos.'
+                },
+                {
+                  title: 'Trazer de volta o glow natural e a aparência de pele jovem',
+                  desc: 'Assim como as coreanas fazem há décadas com rituais simples.'
+                },
+                {
+                  title: 'Melhorar a textura da pele rapidamente',
+                  desc: 'Deixando poros mais discretos, superfície mais lisa e toque mais macio.'
+                },
+                {
+                  title: 'Rejuvenescer a área dos olhos',
+                  desc: 'Diminuindo as linhas de expressão que mais entregam a idade.'
+                },
+                {
+                  title: 'Usar um método simples, barato e 100% natural',
+                  desc: 'Com ingredientes que você já tem em casa.'
+                },
+                {
+                  title: 'Sentir de novo orgulho e confiança ao olhar no espelho',
+                  desc: 'Porque sua pele finalmente mostra o que você sente por dentro.'
+                }
+              ].map((item, index) => (
+                <div key={index} className="flex gap-4 items-start p-4 rounded-xl hover:bg-white/80 transition-colors">
+                  <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-gold-300 to-gold-400 rounded-full flex items-center justify-center mt-0.5 shadow-sm">
+                    <CheckCircle2 className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="font-bold text-gray-900 text-lg leading-snug">{item.title}</h3>
+                    <p className="text-gray-500 leading-relaxed">{item.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-xl text-gray-900 mb-2">Em quanto tempo vejo os resultados?</h3>
-                  <p className="text-gray-700 leading-relaxed">As mudanças são visíveis entre 3 e 7 dias, com resultados ainda melhores após 2 a 4 semanas.</p>
-                </div>
-              </div>
+              ))}
+            </div>
+
+            {/* Micro Headline */}
+            <div className="space-y-6 pt-4">
+              <p className="text-xl font-bold text-gray-800">
+                Se esses são os resultados que você quer, você está no lugar certo.
+              </p>
+
+              {/* CTA Button */}
+              <button
+                onClick={redirectToCheckout}
+                className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
+              >
+                QUERO REJUVENESCER MINHA PELE
+              </button>
             </div>
           </div>
         </section>
 
         <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
           <div className="text-center space-y-12">
+            {/* Title */}
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
-              Como esta técnica funciona?
+              Tudo Que Você Vai Receber Ao Acessar o Método Pele Coreana 7D™
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Esta é a técnica inventada por mulheres coreanas, agora disponível para brasileiras que se recusam a envelhecer. O método acelera a regeneração celular com ativos naturais e cria um efeito tensor imediato, suavizando marcas de expressão sem depender de cremes caros ou promessas de influenciadores. São apenas 5 minutos por dia para enganar o espelho, os anos e quem duvidava que você poderia rejuvenescer.
+
+            {/* Subheadline */}
+            <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
+              Um protocolo prático, organizado e fiel ao ritual tradicional coreano — pronto para você aplicar por 7 dias e rejuvenescer sua pele de forma natural.
             </p>
-          </div>
-        </section>
 
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gold-50">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">
-              Testado e Aprovado por Mulheres Reais!
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <img src={antesDepois2} alt="Antes e Depois 2" className="w-full h-auto rounded-2xl shadow-lg" />
-              <img src={antesDepois3} alt="Antes e Depois 3" className="w-full h-auto rounded-2xl shadow-lg" />
-              <img src={antesDepois4} alt="Antes e Depois 4" className="w-full h-auto rounded-2xl shadow-lg" />
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-          <div className="relative bg-gradient-to-br from-gold-50 via-white to-gold-50 rounded-3xl p-8 sm:p-12 border-2 border-gold-200 shadow-xl">
-            <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
-              <div className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-6 py-2 rounded-full flex items-center gap-2 shadow-lg">
-                <Gift className="w-5 h-5" />
-                <span className="font-semibold">Bônus Exclusivo</span>
-              </div>
+            {/* Product Mockup Fan */}
+            <div className="relative flex justify-center mb-8 h-64 sm:h-80 md:h-96"> {/* Adjust height as needed */}
+              <img
+                src={fotoProduto1}
+                alt="Método Pele Coreana 7D™ - Imagem 1"
+                className="absolute w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] h-auto object-contain drop-shadow-xl transform -rotate-12 left-1/2 -translate-x-1/2 transition-transform duration-300 hover:scale-110 z-10"
+              />
+              <img
+                src={fotoProduto2}
+                alt="Método Pele Coreana 7D™ - Imagem 2"
+                className="absolute w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] h-auto object-contain drop-shadow-xl transform rotate-0 left-1/2 -translate-x-1/2 transition-transform duration-300 hover:scale-110 z-20"
+              />
+              <img
+                src={fotoProduto3}
+                alt="Método Pele Coreana 7D™ - Imagem 3"
+                className="absolute w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] h-auto object-contain drop-shadow-xl transform rotate-12 left-1/2 -translate-x-1/2 transition-transform duration-300 hover:scale-110 z-30"
+              />
             </div>
 
-            <div className="text-center space-y-6 mt-4">
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
-                Rotina Caseira para Todos os Tipos de Pele
-              </h2>
-
-              <div className="relative h-64 my-8 flex justify-center items-center">
-                <img src={fotoBonus1} alt="Bônus 1" className="absolute w-auto h-full object-contain transform -rotate-6 hover:rotate-0 hover:scale-110 transition-transform duration-300" />
-                <img src={fotoBonus2} alt="Bônus 2" className="absolute w-auto h-full object-contain transform rotate-6 hover:rotate-0 hover:scale-110 transition-transform duration-300" />
-              </div>
-
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Guia com receitas específicas para peles secas e oleosas, com ingredientes que você já tem em casa. Ao adquirir o Pele de Porcelana 7D, você recebe nosso material completo de forma totalmente gratuita!
-              </p>
-              <div className="text-sm text-gray-600">
-                <span className="line-through">De R$21,90</span> por <span className="font-bold text-gold-400 animate-pulse">R$00,00</span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center max-w-2xl mx-auto pt-4">
+            {/* Main Product Block */}
+            <div className="relative bg-gradient-to-br from-gold-50 via-white to-gold-50 rounded-3xl p-8 sm:p-12 border-2 border-gold-200 shadow-2xl">
+              {/* Product Features - Detailed Bullets */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto">
                 {[
-                  'Soluções 100% caseiras',
-                  'Máscaras e esfoliantes simples',
-                  'Rotinas personalizadas',
-                  'Resultados visíveis em dias'
+                  { icon: Book, text: 'Receita oficial da Máscara Coreana 7D' },
+                  { icon: Clock, text: 'Ritual diário completo de 5 minutos' },
+                  { icon: Calendar, text: 'Cronograma da semana passo a passo (Dia 1 ao Dia 7)' },
+                  { icon: Timer, text: 'Guia de aplicação + tempos corretos de pausa' },
+                  { icon: Sparkles, text: 'Técnica coreana de "pré-ativação da pele"' },
+                  { icon: Droplets, text: 'Água de Arroz Coreana — método tradicional' },
+                  { icon: CheckCircle2, text: 'Checklist de uso e frequência' },
+                  { icon: Heart, text: 'Ajustes para pele madura (35+)' },
+                  { icon: Leaf, text: 'Recomendações para cada tipo de pele' },
+                  { icon: Eye, text: 'Protocolos complementares para olhos e firmeza' }
                 ].map((item, index) => (
-                  <div key={index} className="flex items-center justify-center gap-3">
-                    <div className="w-6 h-6 bg-gold-300 rounded-full flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-4 h-4 text-white" />
+                  <div key={index} className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/60 transition-colors">
+                    <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-gold-300 to-gold-400 rounded-full flex items-center justify-center shadow-sm">
+                      <item.icon className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-gray-700 font-medium">{item}</span>
+                    <span className="text-gray-800 font-medium leading-snug">{item.text}</span>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
-        </section>
 
-        <section id="cta-section" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gold-50">
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-white rounded-3xl shadow-2xl border-2 border-gold-200 p-8 sm:p-12 text-center space-y-8">
-              <div className="inline-block bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
-                Últimas Unidades com Desconto
+            {/* Tangibilization List - Second Block */}
+            <div className="bg-white rounded-2xl p-8 border border-gold-200 shadow-lg max-w-3xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  'Guia completo do ritual coreano original',
+                  'Passo a passo simples, direto e fácil de seguir',
+                  'Técnicas coreanas de massagem antirrugas',
+                  'Mapa visual da semana (checklist 7D)',
+                  'Rotina de glow coreano',
+                  'Ajustes especiais para rugas profundas',
+                  'Protocolos extras para rejuvenescimento da área dos olhos',
+                  'Explicação científica dos ingredientes naturais',
+                  'Acesso imediato após a compra'
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 bg-gold-300 rounded-full flex items-center justify-center">
+                      <CheckCircle2 className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-gray-700 font-medium text-sm">{item}</span>
+                  </div>
+                ))}
               </div>
+            </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
-                Comece Sua Transformação Hoje!
-              </h2>
+            {/* Micro Headline */}
+            <p className="text-xl font-bold text-gray-800 max-w-3xl mx-auto">
+              O Método 7D™ foi criado para ser direto, simples e extremamente eficaz. Você aplica hoje e já sente diferença nos próximos dias.
+            </p>
 
-              <div className="space-y-4">
-                <div className="flex items-center justify-center gap-3">
-                  <span className="text-2xl text-gray-400 line-through font-oswald">R$ 69,90</span>
-                  <span className="text-5xl font-bold text-gold-400 text-shadow-white font-oswald animate-scale-pulse">R$ 36,90</span>
-                </div>
-                <p className="text-gray-600">Acesso imediato + bônus gratuito</p>
-              </div>
-
-              <button onClick={redirectToCheckout} className="w-full sm:w-auto bg-gradient-to-r from-gold-300 to-gold-400 text-white px-6 py-3 rounded-full font-bold text-xl hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow">
-                <span className="flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 mr-2" />
-                  APAGAR MINHAS IMPERFEIÇÕES AGORA!
-                </span>
+            {/* CTA Button */}
+            <div className="pt-4">
+              <button
+                onClick={redirectToCheckout}
+                className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
+              >
+                QUERO REJUVENESCER MINHA PELE
               </button>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-600 pt-4">
-                <div className="flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-gold-400 text-shadow-white" />
-                  <span>Pagamento 100% Seguro</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-gold-400 text-shadow-white" />
-                  <span>Acesso Imediato</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-gold-400 text-shadow-white" />
-                  <span>Garantia de 30 Dias</span>
-                </div>
-              </div>
             </div>
           </div>
         </section>
+
+        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+          <div className="text-center space-y-12">
+            <div>
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                E Ainda Recebe Tudo Isso Como Presente Hoje
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
+                Para acelerar seus resultados e potencializar o efeito do Método 7D™, você recebe 3 bônus exclusivos totalmente gratuitos.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Bonus 1 */}
+              <div className="bg-white rounded-2xl p-6 border-2 border-gold-100 shadow-lg hover:shadow-xl transition-shadow flex flex-col">
+                <div className="bg-gold-100 text-gold-600 font-bold text-sm py-1 px-3 rounded-full self-center mb-4">
+                  🎁 BÔNUS 1
+                </div>
+                <img src={fotoBonus1} alt="72 Horas Sem Olheiras" className="w-full h-48 object-contain mb-6" />
+                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
+                  72 Horas Sem Olheiras™
+                </h3>
+                <div className="text-left space-y-4 flex-grow">
+                  <div>
+                    <p className="font-semibold text-gray-800 text-sm">O que é:</p>
+                    <p className="text-gray-600 text-sm">Um protocolo de emergência que reduz olheiras, inchaço e marcas ao redor dos olhos em apenas 3 dias.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-800 text-sm">Por que acelera:</p>
+                    <p className="text-gray-600 text-sm">A área dos olhos é onde o envelhecimento aparece primeiro — e quando ela rejuvenesce, o rosto inteiro parece mais jovem.</p>
+                  </div>
+                  <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
+                    <li>Compressa de efeito lifting</li>
+                    <li>Máscara natural para clareamento</li>
+                    <li>Rotina anti-inchaço</li>
+                    <li>Guia de aplicação e frequência</li>
+                  </ul>
+                </div>
+                <div className="mt-6 pt-4 border-t border-gray-100 text-center">
+                  <p className="text-sm text-gray-500">Valor sugerido:</p>
+                  <p className="text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 47,00</p>
+                  <p className="text-gold-500 font-bold text-xl mt-1">Você paga: R$ 0</p>
+                </div>
+              </div>
+
+              {/* Bonus 2 */}
+              <div className="bg-white rounded-2xl p-6 border-2 border-gold-100 shadow-lg hover:shadow-xl transition-shadow flex flex-col">
+                <div className="bg-gold-100 text-gold-600 font-bold text-sm py-1 px-3 rounded-full self-center mb-4">
+                  🎁 BÔNUS 2
+                </div>
+                <img src={fotoBonus2} alt="Detox Facial Coreano 48h" className="w-full h-48 object-contain mb-6" />
+                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
+                  Detox Facial Coreano 48h™
+                </h3>
+                <div className="text-left space-y-4 flex-grow">
+                  <div>
+                    <p className="font-semibold text-gray-800 text-sm">O que é:</p>
+                    <p className="text-gray-600 text-sm">Um protocolo de desintoxicação que limpa poros, remove impurezas e prepara sua pele para absorver melhor o Método 7D™.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-800 text-sm">Por que acelera:</p>
+                    <p className="text-gray-600 text-sm">Pele limpa = melhor absorção = efeito mais rápido da máscara coreana.</p>
+                  </div>
+                  <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
+                    <li>Máscara de limpeza profunda</li>
+                    <li>Ritual calmante de chá verde</li>
+                    <li>Guia de frequência ideal</li>
+                  </ul>
+                </div>
+                <div className="mt-6 pt-4 border-t border-gray-100 text-center">
+                  <p className="text-sm text-gray-500">Valor sugerido:</p>
+                  <p className="text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 39,00</p>
+                  <p className="text-gold-500 font-bold text-xl mt-1">Você paga: R$ 0</p>
+                </div>
+              </div>
+
+              {/* Bonus 3 */}
+              <div className="bg-white rounded-2xl p-6 border-2 border-gold-100 shadow-lg hover:shadow-xl transition-shadow flex flex-col">
+                <div className="bg-gold-100 text-gold-600 font-bold text-sm py-1 px-3 rounded-full self-center mb-4">
+                  🎁 BÔNUS 3
+                </div>
+                <img src={fotoBonus1} alt="Rotina Caseira Para Todos os Tipos de Pele" className="w-full h-48 object-contain mb-6" />
+                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
+                  Rotina Caseira Para Todos os Tipos de Pele™
+                </h3>
+                <div className="text-left space-y-4 flex-grow">
+                  <div>
+                    <p className="font-semibold text-gray-800 text-sm">O que é:</p>
+                    <p className="text-gray-600 text-sm">Um guia completo com receitas naturais, hidratantes, tônicos e rotinas para manter sua pele bonita todos os dias.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-800 text-sm">Por que acelera:</p>
+                    <p className="text-gray-600 text-sm">Garante que você mantenha os efeitos do Método 7D™ por semanas e semanas.</p>
+                  </div>
+                  <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
+                    <li>Rotina para pele oleosa</li>
+                    <li>Rotina para pele seca</li>
+                    <li>Máscaras naturais</li>
+                    <li>Tônicos caseiros</li>
+                    <li>Dicas práticas de manutenção</li>
+                  </ul>
+                </div>
+                <div className="mt-6 pt-4 border-t border-gray-100 text-center">
+                  <p className="text-sm text-gray-500">Valor sugerido:</p>
+                  <p className="text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 59,00</p>
+                  <p className="text-gold-500 font-bold text-xl mt-1">Você paga: R$ 0</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Micro Headline & CTA */}
+            <div className="space-y-6 pt-8">
+              <p className="text-xl font-bold text-gray-800">
+                Somando tudo, você está recebendo <span className="text-red-600 line-through decoration-red-600 decoration-2">R$ 145,00</span> em bônus gratuitamente.
+              </p>
+
+              <button
+                onClick={redirectToCheckout}
+                className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
+              >
+                QUERO REJUVENESCER MINHA PELE HOJE
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gold-50 via-white to-gold-50">
+          <div className="max-w-4xl mx-auto text-center space-y-12">
+            <div>
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                Leve o Método Pele Coreana 7D™ + Todos os Bônus Por Apenas R$ 29,90
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
+                Você está prestes a acessar um protocolo completo de rejuvenescimento coreano que poderia custar caro mas hoje está liberado por um valor simbólico.
+              </p>
+            </div>
+
+            {/* Value Stack Card */}
+            <div className="bg-white rounded-3xl shadow-2xl border-2 border-gold-200 overflow-hidden max-w-2xl mx-auto">
+              <div className="bg-gold-50 p-6 border-b border-gold-100">
+                <h3 className="font-serif text-2xl font-bold text-gray-900">Resumo da Sua Oferta</h3>
+              </div>
+
+              <div className="p-8 space-y-6">
+                {/* Product */}
+                <div className="flex flex-col gap-2 border-b border-gray-100 pb-4 items-center text-center">
+                  <div className="flex items-center gap-2 justify-center">
+                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0" />
+                    <span className="font-semibold text-gray-800 text-lg">Método Pele Coreana 7D™</span>
+                  </div>
+                  <div>
+                    <p className="text-sm text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 97,00</p>
+                    <p className="font-bold text-gold-500 text-xl">R$ 29,90</p>
+                  </div>
+                </div>
+
+                {/* Bonus 1 */}
+                <div className="flex flex-col gap-2 border-b border-gray-100 pb-4 items-center text-center">
+                  <div className="flex items-center gap-2 justify-center">
+                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0" />
+                    <span className="font-semibold text-gray-800 text-lg">Bônus 72 Horas Sem Olheiras™</span>
+                  </div>
+                  <div>
+                    <p className="text-sm text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 47,00</p>
+                    <p className="font-bold text-green-600 text-xl">R$ 0,00</p>
+                  </div>
+                </div>
+
+                {/* Bonus 2 */}
+                <div className="flex flex-col gap-2 border-b border-gray-100 pb-4 items-center text-center">
+                  <div className="flex items-center gap-2 justify-center">
+                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0" />
+                    <span className="font-semibold text-gray-800 text-lg">Bônus Detox Facial Coreano 48h™</span>
+                  </div>
+                  <div>
+                    <p className="text-sm text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 39,00</p>
+                    <p className="font-bold text-green-600 text-xl">R$ 0,00</p>
+                  </div>
+                </div>
+
+                {/* Bonus 3 */}
+                <div className="flex flex-col gap-2 pb-2 items-center text-center">
+                  <div className="flex items-center gap-2 justify-center">
+                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0" />
+                    <span className="font-semibold text-gray-800 text-lg">Bônus Rotina Caseira</span>
+                  </div>
+                  <div>
+                    <p className="text-sm text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 59,00</p>
+                    <p className="font-bold text-green-600 text-xl">R$ 0,00</p>
+                  </div>
+                </div>
+
+                {/* Total */}
+                <div className="bg-gray-50 rounded-xl p-6 mt-6">
+                  <div className="flex justify-between items-end mb-2">
+                    <span className="text-gray-600 font-medium">Valor Total:</span>
+                    <span className="text-red-600 font-bold line-through decoration-red-600 decoration-2 text-lg">R$ 242,00</span>
+                  </div>
+                  <div className="flex justify-between items-end">
+                    <span className="text-gray-900 font-bold text-xl">Você paga HOJE:</span>
+                    <span className="text-4xl font-bold text-green-600">R$ 29,90</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <p className="text-xl font-medium text-gray-800">
+                Um protocolo completo de rejuvenescimento por menos do que um hidratante de farmácia.
+              </p>
+
+              <button
+                onClick={redirectToCheckout}
+                className="w-full sm:w-auto bg-gradient-to-r from-gold-300 to-gold-400 text-white px-8 py-4 rounded-full font-bold text-xl hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
+              >
+                QUERO REJUVENESCER MINHA PELE AGORA
+                <span className="block text-sm font-normal mt-1 opacity-90">Acesso imediato ao Método 7D™ por apenas R$ 29,90</span>
+              </button>
+
+              {/* Trust Badges */}
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-8 text-sm text-gray-600">
+                <div className="flex items-center gap-2">
+                  <Shield className="w-5 h-5 text-green-500" />
+                  <span>Compra 100% Segura</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Shield className="w-5 h-5 text-green-500" />
+                  <span>Pagamento Criptografado</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Zap className="w-5 h-5 text-green-500" />
+                  <span>Acesso Imediato</span>
+                </div>
+              </div>
+
+              <p className="text-lg font-bold text-gray-900">
+                Comece hoje. Sua pele daqui a 7 dias vai te agradecer.
+              </p>
+            </div>
+          </div>
+        </section>
+
+
 
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gold-50">
           <div className="max-w-3xl mx-auto text-center space-y-6">
@@ -279,6 +788,88 @@ function App() {
               Confiamos plenamente na qualidade e eficácia do Método Pele de Porcelana 7D. Cada etapa foi pensada para ser simples, acessível e entregar resultados reais, mesmo para quem já tentou de tudo. Por isso, você tem 30 dias para testar sem nenhum risco.<br />
               <span className="font-semibold">Simples assim.</span>
             </p>
+          </div>
+        </section>
+
+
+        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">
+            Perguntas Frequentes
+          </h2>
+          <div className="space-y-4">
+            {[
+              {
+                q: 'Funciona para qualquer tipo de pele?',
+                a: 'Sim! O Método 7D™ foi criado justamente para qualquer pele. quanto mais marcada, mais perceptível é o resultado em 7 dias.'
+              },
+              {
+                q: 'Em quanto tempo começo a ver diferença?',
+                a: 'A maioria vê diferença entre 3 e 7 dias.\nPele mais lisa, mais firme e com glow imediato.'
+              },
+              {
+                q: 'Preciso comprar produtos caros para fazer?',
+                a: 'Não.\nO método usa ingredientes simples que você já tem em casa.'
+              },
+              {
+                q: 'É só uma receita da internet?',
+                a: 'Não.\nÉ um protocolo completo, organizado passo a passo, baseado no ritual coreano original — o que muda completamente o resultado.'
+              },
+              {
+                q: 'É fácil de seguir?',
+                a: 'Sim.\nO método pede apenas 5 minutos por dia e é extremamente simples.'
+              },
+              {
+                q: 'Serve para todos os tipos de pele?',
+                a: 'Sim — oleosa, seca, mista ou sensível.\nO método tem ajustes para cada tipo de pele.'
+              },
+              {
+                q: 'O acesso é liberado na hora?',
+                a: 'Sim.\nAssim que comprar, você recebe acesso imediato aos arquivos.'
+              },
+              {
+                q: 'Funciona mesmo se eu já tentei vários cremes e nada funcionou?',
+                a: 'Sim.\nA diferença é o método coreano, que age na regeneração natural da pele.'
+              },
+              {
+                q: 'É seguro?',
+                a: 'Totalmente.\nIngredientes naturais + técnicas tradicionais testadas há décadas.'
+              },
+              {
+                q: 'Preciso ter conhecimento sobre skincare?',
+                a: 'Não precisa.\nÉ literalmente um passo a passo simples para seguir.'
+              }
+            ].map((faq, index) => (
+              <div key={index} className="bg-white rounded-2xl border border-gold-100 overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                <button
+                  onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+                  className="w-full p-6 text-left flex items-center justify-between gap-4 hover:bg-gold-50/30 transition-colors"
+                >
+                  <div className="flex items-start gap-3 flex-1">
+                    <span className="text-gold-500 font-serif text-xl flex-shrink-0">{index + 1}.</span>
+                    <h3 className="font-bold text-lg text-gray-900">{faq.q}</h3>
+                  </div>
+                  <ChevronRight
+                    className={`w-6 h-6 text-gold-500 flex-shrink-0 transition-transform duration-300 ${openFAQ === index ? 'rotate-90' : ''}`}
+                  />
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-6 pt-0">
+                    <p className="text-gray-600 ml-8 leading-relaxed whitespace-pre-line">
+                      {faq.a}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <button
+              onClick={redirectToCheckout}
+              className="w-full sm:w-auto bg-gradient-to-r from-gold-300 to-gold-400 text-white px-8 py-4 rounded-full font-bold text-xl hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
+            >
+              QUERO REJUVENESCER MINHA PELE
+            </button>
           </div>
         </section>
 
@@ -311,19 +902,7 @@ function App() {
               <a href="#" className="hover:text-gold-400 hover:text-shadow-white transition-colors">Contato</a>
             </div>
 
-            <div className="flex items-center gap-2">
-              <a
-                href="https://wa.me/556193711943"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-gray-600 hover:text-gold-400 hover:text-shadow-white transition-colors"
-              >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                </svg>
-                <span className="text-sm font-medium">Suporte via WhatsApp</span>
-              </a>
-            </div>
+
           </div>
 
           <div className="mt-8 pt-8 border-t border-gold-100 text-center text-sm text-gray-500">
