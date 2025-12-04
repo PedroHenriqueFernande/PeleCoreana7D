@@ -19,25 +19,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gold-100 z-50 shadow-sm">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-6 h-6 text-gold-400 text-shadow-white" />
-            <span className="font-serif text-xl font-semibold text-gray-800 text-center leading-tight">Segredos<br />da Pele</span>
-          </div>
-          <button
-            onClick={redirectToCheckout}
-            className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-4 py-2.5 rounded-full font-medium text-sm hover:shadow-lg hover:from-gold-400 hover:to-gold-400 transition-all duration-300 animate-pulse shadow-gold-glow transform hover:scale-105"
-          >
-            <span className="flex items-center justify-center">
-              <Sparkles className="w-5 h-5 mr-2" />
-              APAGAR MINHAS IMPERFEIÇÕES AGORA!
-            </span>
-          </button>
-        </div>
-      </header>
-
-      <main className="pt-28">
+      <main className="pt-8">
         <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h1 className="font-oswald text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
