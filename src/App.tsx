@@ -53,7 +53,7 @@ function App() {
             </p>
 
             {/* VSL Player Placeholder */}
-            <div className="w-full max-w-md mx-auto aspect-[9/16] bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl flex items-center justify-center my-8 border-2 border-gold-200">
+            <div className="w-full max-w-sm mx-auto aspect-[9/16] bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl flex items-center justify-center my-8 border-2 border-gold-200">
               <div className="text-center space-y-4">
                 <div className="w-20 h-20 mx-auto bg-gold-400 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-pointer">
                   <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
@@ -71,7 +71,7 @@ function App() {
               >
                 QUERO REJUVENESCER MINHA PELE
               </button>
-              <p className="text-sm text-gray-600 mt-3">Apenas R$ 29,90 — acesso imediato ao Método 7D™</p>
+              <p className="text-sm text-gray-600 mt-3">Apenas R$ 29,90 — acesso imediato ao Método Pele Coreana 7D</p>
             </div>
 
             {/* Before/After Transformation Carousel Section */}
@@ -79,7 +79,7 @@ function App() {
               <div className="max-w-5xl mx-auto text-center space-y-8">
                 {/* Main Title */}
                 <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
-                  Veja a Transformação Real Que o Método 7D™ Proporciona
+                  Veja a Transformação Real Que o Método Pele Coreana 7D Proporciona
                 </h2>
 
                 {/* Subheadline */}
@@ -319,7 +319,7 @@ function App() {
 
             {/* Subheadline */}
             <p className="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
-              O Método Pele Coreana 7D™ está disponível por tempo limitado de <span className="text-red-600 line-through decoration-red-600 decoration-2 font-bold">R$ 229,90</span> por apenas <span className="font-bold text-gold-500">R$ 29,90</span>.
+              O Método Pele Coreana 7D está disponível por tempo limitado de <span className="text-red-600 line-through decoration-red-600 decoration-2 font-bold">R$ 229,90</span> por apenas <span className="font-bold text-gold-500">R$ 29,90</span>.
               <br />
               Aproveite enquanto a oferta está liberada.
             </p>
@@ -335,10 +335,10 @@ function App() {
                 {/* Urgency Messages */}
                 <div className="space-y-3 text-center">
                   <p className="text-lg font-bold text-red-700">
-                    "Oferta ativa somente enquanto este aviso estiver visível."
+                    Oferta ativa somente enquanto este aviso estiver visível.
                   </p>
                   <p className="text-base font-semibold text-orange-700">
-                    "Preço pode voltar ao normal a qualquer momento."
+                    Preço pode voltar ao normal a qualquer momento.
                   </p>
                 </div>
               </div>
@@ -353,7 +353,7 @@ function App() {
                 QUERO REJUVENESCER MINHA PELE AGORA
               </button>
               <p className="text-sm text-gray-600">
-                (Acesso imediato ao Método 7D™ por apenas R$ 29,90)
+                (Acesso imediato ao Método Pele Coreana 7D por apenas R$ 29,90)
               </p>
             </div>
           </div>
@@ -369,7 +369,7 @@ function App() {
 
             {/* Subheadline */}
             <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Se você se encaixa em pelo menos 2 desses pontos, o Método Pele Coreana 7D™ foi feito exatamente para o seu tipo de pele e para o seu momento.
+              Se você se encaixa em pelo menos 2 desses pontos, o Método Pele Coreana 7D foi feito exatamente para o seu tipo de pele e para o seu momento.
             </p>
 
             {/* Identification List */}
@@ -437,7 +437,7 @@ function App() {
           <div className="text-center space-y-12">
             {/* Title */}
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
-              Tudo Que Você Vai Receber Ao Acessar o Método Pele Coreana 7D™
+              Tudo Que Você Vai Receber Ao Acessar o Método Pele Coreana 7D
             </h2>
 
             {/* Subheadline */}
@@ -449,17 +449,17 @@ function App() {
             <div className="relative flex justify-center mb-8 h-64 sm:h-80 md:h-96"> {/* Adjust height as needed */}
               <img
                 src={fotoProduto1}
-                alt="Método Pele Coreana 7D™ - Imagem 1"
+                alt="Método Pele Coreana 7D - Imagem 1"
                 className="absolute w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] h-auto object-contain drop-shadow-xl transform -rotate-12 left-1/2 -translate-x-1/2 transition-transform duration-300 hover:scale-110 z-10"
               />
               <img
                 src={fotoProduto2}
-                alt="Método Pele Coreana 7D™ - Imagem 2"
+                alt="Método Pele Coreana 7D - Imagem 2"
                 className="absolute w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] h-auto object-contain drop-shadow-xl transform rotate-0 left-1/2 -translate-x-1/2 transition-transform duration-300 hover:scale-110 z-20"
               />
               <img
                 src={fotoProduto3}
-                alt="Método Pele Coreana 7D™ - Imagem 3"
+                alt="Método Pele Coreana 7D - Imagem 3"
                 className="absolute w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] h-auto object-contain drop-shadow-xl transform rotate-12 left-1/2 -translate-x-1/2 transition-transform duration-300 hover:scale-110 z-30"
               />
             </div>
@@ -516,7 +516,7 @@ function App() {
 
             {/* Micro Headline */}
             <p className="text-xl font-bold text-gray-800 max-w-3xl mx-auto">
-              O Método 7D™ foi criado para ser direto, simples e extremamente eficaz. Você aplica hoje e já sente diferença nos próximos dias.
+              O Método Pele Coreana 7D foi criado para ser direto, simples e extremamente eficaz. Você aplica hoje e já sente diferença nos próximos dias.
             </p>
 
             {/* CTA Button */}
@@ -538,7 +538,7 @@ function App() {
                 E Ainda Recebe Tudo Isso Como Presente Hoje
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
-                Para acelerar seus resultados e potencializar o efeito do Método 7D™, você recebe 3 bônus exclusivos totalmente gratuitos.
+                Para acelerar seus resultados e potencializar o efeito do Método Pele Coreana 7D, você recebe 3 bônus exclusivos totalmente gratuitos.
               </p>
             </div>
 
@@ -550,7 +550,7 @@ function App() {
                 </div>
                 <img src={fotoBonus1} alt="72 Horas Sem Olheiras" className="w-full h-48 object-contain mb-6" />
                 <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
-                  72 Horas Sem Olheiras™
+                  72 Horas Sem Olheiras
                 </h3>
                 <div className="text-left space-y-4 flex-grow">
                   <div>
@@ -582,12 +582,12 @@ function App() {
                 </div>
                 <img src={fotoBonus2} alt="Detox Facial Coreano 48h" className="w-full h-48 object-contain mb-6" />
                 <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
-                  Detox Facial Coreano 48h™
+                  Detox Facial Coreano 48h
                 </h3>
                 <div className="text-left space-y-4 flex-grow">
                   <div>
                     <p className="font-semibold text-gray-800 text-sm">O que é:</p>
-                    <p className="text-gray-600 text-sm">Um protocolo de desintoxicação que limpa poros, remove impurezas e prepara sua pele para absorver melhor o Método 7D™.</p>
+                    <p className="text-gray-600 text-sm">Um protocolo de desintoxicação que limpa poros, remove impurezas e prepara sua pele para absorver melhor o Método Pele Coreana 7D.</p>
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800 text-sm">Por que acelera:</p>
@@ -613,7 +613,7 @@ function App() {
                 </div>
                 <img src={fotoBonus1} alt="Rotina Caseira Para Todos os Tipos de Pele" className="w-full h-48 object-contain mb-6" />
                 <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
-                  Rotina Caseira Para Todos os Tipos de Pele™
+                  Rotina Caseira Para Todos os Tipos de Pele
                 </h3>
                 <div className="text-left space-y-4 flex-grow">
                   <div>
@@ -622,7 +622,7 @@ function App() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800 text-sm">Por que acelera:</p>
-                    <p className="text-gray-600 text-sm">Garante que você mantenha os efeitos do Método 7D™ por semanas e semanas.</p>
+                    <p className="text-gray-600 text-sm">Garante que você mantenha os efeitos do Método Pele Coreana 7D por semanas e semanas.</p>
                   </div>
                   <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
                     <li>Rotina para pele oleosa</li>
@@ -660,7 +660,7 @@ function App() {
           <div className="max-w-4xl mx-auto text-center space-y-12">
             <div>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                Leve o Método Pele Coreana 7D™ + Todos os Bônus Por Apenas R$ 29,90
+                Leve o Método Pele Coreana 7D + Todos os Bônus Por Apenas R$ 29,90
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
                 Você está prestes a acessar um protocolo completo de rejuvenescimento coreano que poderia custar caro mas hoje está liberado por um valor simbólico.
@@ -678,7 +678,7 @@ function App() {
                 <div className="flex flex-col gap-2 border-b border-gray-100 pb-4 items-center text-center">
                   <div className="flex items-center gap-2 justify-center">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0" />
-                    <span className="font-semibold text-gray-800 text-lg">Método Pele Coreana 7D™</span>
+                    <span className="font-semibold text-gray-800 text-lg">Método Pele Coreana 7D</span>
                   </div>
                   <div>
                     <p className="text-sm text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 97,00</p>
@@ -690,7 +690,7 @@ function App() {
                 <div className="flex flex-col gap-2 border-b border-gray-100 pb-4 items-center text-center">
                   <div className="flex items-center gap-2 justify-center">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0" />
-                    <span className="font-semibold text-gray-800 text-lg">Bônus 72 Horas Sem Olheiras™</span>
+                    <span className="font-semibold text-gray-800 text-lg">Bônus 72 Horas Sem Olheiras</span>
                   </div>
                   <div>
                     <p className="text-sm text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 47,00</p>
@@ -702,7 +702,7 @@ function App() {
                 <div className="flex flex-col gap-2 border-b border-gray-100 pb-4 items-center text-center">
                   <div className="flex items-center gap-2 justify-center">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0" />
-                    <span className="font-semibold text-gray-800 text-lg">Bônus Detox Facial Coreano 48h™</span>
+                    <span className="font-semibold text-gray-800 text-lg">Bônus Detox Facial Coreano 48h</span>
                   </div>
                   <div>
                     <p className="text-sm text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 39,00</p>
@@ -746,7 +746,7 @@ function App() {
                 className="w-full sm:w-auto bg-gradient-to-r from-gold-300 to-gold-400 text-white px-8 py-4 rounded-full font-bold text-xl hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
               >
                 QUERO REJUVENESCER MINHA PELE AGORA
-                <span className="block text-sm font-normal mt-1 opacity-90">Acesso imediato ao Método 7D™ por apenas R$ 29,90</span>
+                <span className="block text-sm font-normal mt-1 opacity-90">Acesso imediato ao Método Pele Coreana 7D por apenas R$ 29,90</span>
               </button>
 
               {/* Trust Badges */}
@@ -785,7 +785,7 @@ function App() {
             </h2>
 
             <p className="text-xl text-gray-700 leading-relaxed">
-              Confiamos plenamente na qualidade e eficácia do Método Pele de Porcelana 7D. Cada etapa foi pensada para ser simples, acessível e entregar resultados reais, mesmo para quem já tentou de tudo. Por isso, você tem 30 dias para testar sem nenhum risco.<br />
+              Confiamos plenamente na qualidade e eficácia do Método Pele Coreana 7D. Cada etapa foi pensada para ser simples, acessível e entregar resultados reais, mesmo para quem já tentou de tudo. Por isso, você tem 30 dias para testar sem nenhum risco.<br />
               <span className="font-semibold">Simples assim.</span>
             </p>
           </div>
@@ -800,7 +800,7 @@ function App() {
             {[
               {
                 q: 'Funciona para qualquer tipo de pele?',
-                a: 'Sim! O Método 7D™ foi criado justamente para qualquer pele. quanto mais marcada, mais perceptível é o resultado em 7 dias.'
+                a: 'Sim! O Método Pele Coreana 7D foi criado justamente para qualquer pele. quanto mais marcada, mais perceptível é o resultado em 7 dias.'
               },
               {
                 q: 'Em quanto tempo começo a ver diferença?',
@@ -873,19 +873,7 @@ function App() {
           </div>
         </section>
 
-        <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white border-t border-gold-100">
-          <div className="max-w-7xl mx-auto flex justify-center">
-            <button
-              onClick={redirectToCheckout}
-              className="w-full bg-gradient-to-r from-gold-300 to-gold-400 text-white px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 mb-8 animate-pulse shadow-gold-glow transform hover:scale-105"
-            >
-              <span className="flex items-center justify-center">
-                <Sparkles className="w-5 h-5 mr-2" />
-                APAGAR MINHAS IMPERFEIÇÕES AGORA!
-              </span>
-            </button>
-          </div>
-        </section>
+
       </main>
 
       <footer className="bg-white border-t border-gold-100 py-12 px-4 sm:px-6 lg:px-8">
@@ -893,7 +881,7 @@ function App() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex items-center gap-2">
               <Sparkles className="w-6 h-6 text-gold-400 text-shadow-white" />
-              <span className="font-serif text-xl font-semibold text-gray-800">Pele de Porcelana 7D</span>
+              <span className="font-serif text-xl font-semibold text-gray-800">Pele Coreana 7D</span>
             </div>
 
             <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
@@ -906,7 +894,7 @@ function App() {
           </div>
 
           <div className="mt-8 pt-8 border-t border-gold-100 text-center text-sm text-gray-500">
-            <p>© 2025 Pele de Porcelana 7D. Todos os direitos reservados.</p>
+            <p>© 2025 Pele Coreana 7D. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
