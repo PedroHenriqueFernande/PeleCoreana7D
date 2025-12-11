@@ -615,7 +615,7 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
                 {[
                   { icon: Book, text: 'Efeito Lifting Natural Coreano passo a passo' },
                   { icon: Clock, text: 'Ritual diário completo de 5 minutos' },
-                  { icon: Calendar, text: 'Cronograma da semana passo a passo (Dia 1 ao Dia 7)' },
+                  { icon: Calendar, text: 'Cronograma da semana passo a passo' },
                   { icon: Timer, text: 'Guia de aplicação + tempos corretos de pausa' },
                   { icon: Sparkles, text: 'Técnica coreana de pré ativação da pele' },
                   { icon: Droplets, text: 'Água de Arroz Coreana: método tradicional' },
