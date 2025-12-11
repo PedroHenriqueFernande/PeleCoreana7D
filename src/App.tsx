@@ -213,8 +213,8 @@ function App() {
               PARE TUDO POR 2 MINUTOS
             </h2>
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-           Se você deseja em apenas 7 dias <span style={{ color: '#D4B98C' }}>rejuvenescer sua pele e deixar ela com uma aparência mais jovem, iluminada e saudável</span> sem precisar de cremes milagrosos que sustam uma fortuna e não entregam nada?
-              <br />Se sua resposta for sim, então conheça o Método Pele Coreana, <span style={{ color: '#D4B98C' }}>o único método que vai estimular o colágeno natural e preencher sua pele de dentro para fora</span>. Mas antes de pensar que esse é um método qualquer, pode ficar tranquila, não é nada disso. O Método Pele Coreana é um método natural, 100% comprovado científicamente, utilizado por milhões de Coreanas, que são referencias em beleza no mundo todo e que <span style={{ color: '#D4B98C' }}>ja mudou a pele de mais de 15.000 brasileiras</span>.
+           Você deseja em apenas 7 dias <span style={{ color: '#D4B98C' }}>rejuvenescer sua pele e deixar ela com uma aparência mais jovem, iluminada e saudável</span> sem precisar de cremes milagrosos que sustam uma fortuna e não entregam nada?
+              <br />Se sua resposta for sim, então conheça o Método Pele Coreana, <span style={{ color: '#D4B98C' }}>o único método que vai estimular o colágeno natural e preencher sua pele de dentro para fora</span>. Mas antes de pensar que esse é um método qualquer. O Método Pele Coreana é um método natural, 100% comprovado científicamente, utilizado por milhões de Coreanas, que são referencias em beleza no mundo todo e que <span style={{ color: '#D4B98C' }}>ja mudou a pele de mais de 15.000 brasileiras</span>.
             </p>
             <div className="relative overflow-hidden -mx-4 sm:mx-0 rounded-none sm:rounded-2xl border-0 sm:border-2 border-gold-100 shadow-xl bg-white/70 min-h-[14rem]">
               <div
@@ -478,7 +478,7 @@ function App() {
             </p>
 
             {/* Benefits List */}
-            <div className="space-y-8 text-left max-w-2xl mx-auto card-font-reset">
+            <div className="space-y-6 sm:space-y-7 text-left max-w-2xl mx-auto card-font-reset">
               {[
                 {
                   icon: Sparkles,
@@ -516,13 +516,16 @@ function App() {
                   desc: 'Quando sua pele rejuvenesce, seu rosto muda… e você também muda.'
                 }
               ].map((item, index) => (
-                <div key={index} className="flex gap-4 items-start p-4 rounded-xl hover:bg-white/80 transition-colors">
-                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-gold-300 to-gold-400 rounded-full flex items-center justify-center mt-1 shadow-md">
-                    <item.icon className="w-5 h-5 text-white" />
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl border border-gold-100 shadow-md p-5 sm:p-6 flex gap-4 items-start hover:-translate-y-0.5 hover:shadow-lg transition duration-200"
+                >
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-gold-300 to-gold-400 rounded-full flex items-center justify-center mt-0.5 shadow-md">
+                    <item.icon className="w-6 h-6 text-white" />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-bold text-gray-900 text-lg">{item.title}</h3>
-                    <p className="text-gray-500 leading-relaxed">{item.desc}</p>
+                    <h3 className="font-bold text-gray-900 text-lg leading-snug">{item.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -740,7 +743,7 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
                   CONDIÇÃO ÚNICA PARA VOCÊ 
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto text-center">
-                 Não perca essa oportunidade de transformar sua pele. Aproveite e leve mais 3 bônus exclusivos que vão melhorar ainda mais seus resultados!
+                 Não perca essa oportunidade de transformar sua pele. Levando hoje o método, você levará 3 bônus exclusivos que vão melhorar ainda mais seus resultados!
                 </p>
               </div>
 
