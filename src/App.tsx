@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Sparkles, Clock, Leaf, Heart, Star, Shield, CheckCircle2, ChevronRight, Eye, TrendingDown, Ban, Cloud, AlertTriangle, Smile, Droplets, Zap, Book, Calendar, Timer } from 'lucide-react';
 import antesDepois from './assets/Antes-e-Depois-1.jpg';
 import fotoBonus1 from './assets/Foto-do-Bonus-1.png';
@@ -14,13 +14,16 @@ import fotoProduto3 from './assets/Foto-do-Produto-3.png';
 function App() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   const [bonusIndex, setBonusIndex] = useState(0);
+  const INITIAL_COUNTDOWN = 2 * 3600 + 47 * 60 + 54;
+  const [countdown, setCountdown] = useState(INITIAL_COUNTDOWN);
+  const offerDate = new Intl.DateTimeFormat('pt-BR').format(new Date());
 
   const beforeAfterImages = [
     antesDepois,
     antesDepois2,
     antesDepois3,
     antesDepois4,
-    '/4 d.png',
+    '/4%20d.png',
     '/5d.png',
     '/6d.png'
   ];
@@ -61,8 +64,22 @@ function App() {
     window.location.href = 'https://pay.cakto.com.br/7cn5uvv_616238';
   };
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 0) return INITIAL_COUNTDOWN;
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
+      <div className="fixed top-2 left-0 right-0 z-50 text-white text-center text-sm sm:text-base font-semibold py-2 px-4 shadow-lg"
+           style={{ background: 'rgba(218, 165, 32, 0.55)' }}>
+        Esta oferta acaba dia {offerDate}
+      </div>
       <style>{`
         @keyframes marqueeScroll {
           0% { transform: translateX(0); }
@@ -72,6 +89,11 @@ function App() {
           0% { transform: scale(1); }
           50% { transform: scale(1.05); }
           100% { transform: scale(1); }
+        }
+        @keyframes alertBlink {
+          0% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.1); opacity: 0.8; }
+          100% { transform: scale(1); opacity: 1; }
         }
         @keyframes gentlePush {
           0% { transform: translateX(0); }
@@ -124,7 +146,7 @@ function App() {
           </div>
           <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
             <h1 className="font-oswald text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-              ESSE É O MÉTODO COREANO QUE REJUVENESCEU A PELE DE MAIS DE 15.000 BRASILEIRAS EM APENAS 7 DIAS
+              ESSE É O MÉTODO COREANO QUE ACABOU COM AS RUGAS DE MAIS DE 15.000 BRASILEIRAS EM 7 DIAS
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
@@ -155,7 +177,7 @@ function App() {
             </p>
             <div className="relative overflow-hidden -mx-4 sm:mx-0 rounded-none sm:rounded-2xl border-0 sm:border-2 border-gold-100 shadow-xl bg-white/70">
               <div
-                className="flex gap-2 sm:gap-4 w-max"
+                className="flex gap-2 sm:gap-4 min-w-max"
                 style={{ animation: 'marqueeScroll 28s linear infinite' }}
               >
                 {scrollingImages.map((img, index) => (
@@ -542,6 +564,18 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
               Aproveite enquanto a oferta está liberada.
             </p>
 
+            {/* Cronômetro */}
+            <div className="flex justify-center">
+              <div className="bg-red-50 border border-red-200 rounded-full px-6 py-3 shadow-md inline-flex items-center gap-3">
+                <Clock className="w-6 h-6 text-red-600" />
+                <div className="text-red-700 font-bold text-lg">
+                  {String(Math.floor(countdown / 3600)).padStart(2, '0')}:
+                  {String(Math.floor((countdown % 3600) / 60)).padStart(2, '0')}:
+                  {String(countdown % 60).padStart(2, '0')}
+                </div>
+              </div>
+            </div>
+
             {/* Urgency Box */}
             <div className="bg-gradient-to-br from-red-50 to-orange-50 border-2 border-red-200 rounded-2xl p-8 max-w-2xl mx-auto shadow-lg">
               <div className="flex flex-col items-center gap-4">
@@ -632,11 +666,18 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
                 ))}
               </div>
             </div>
-            <div className="space-y-12 pt-10">
+              <div className="space-y-12 pt-10">
+              <div className="flex justify-center">
+                <div
+                  className="bg-red-600 text-white text-sm font-extrabold px-6 py-3 rounded-full shadow-lg"
+                  style={{ boxShadow: '0 0 0 6px rgba(239,68,68,0.2)', animation: 'alertBlink 1.4s ease-in-out infinite' }}
+                >
+                  ALERTA
+                </div>
+              </div>
               <div>
                 <h2
                   className="font-serif text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 text-center"
-                  style={{ animation: 'gentlePush 2.5s ease-in-out infinite' }}
                 >
                   CONDIÇÃO ÚNICA PARA VOCÊ 
                 </h2>
@@ -654,10 +695,10 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
                     {bonusItems.map((item, index) => (
                       <div key={index} className="w-full flex-shrink-0 px-2 flex justify-center items-stretch">
                         <div className="bg-white rounded-2xl p-6 border-2 border-gold-100 shadow-lg hover:shadow-xl transition-shadow flex flex-col h-full items-center text-center gap-4 max-w-xl w-full">
-                          <div className="bg-gold-100 text-gold-600 font-bold text-sm py-1 px-3 rounded-full mb-2">
+                          <div className="bg-gold-100 text-gold-600 font-bold text-sm py-1 px-3 rounded-full mb-2 shadow">
                             {item.label}
                           </div>
-                          <img src={item.img} alt={item.title} className="w-full h-48 object-contain block mx-auto" />
+                          <img src={item.img} alt={item.title} className="w-full max-w-sm h-64 object-contain block mx-auto drop-shadow-lg" />
                           <h3 className="font-serif text-xl font-bold text-gray-900">
                             {item.title}
                           </h3>
