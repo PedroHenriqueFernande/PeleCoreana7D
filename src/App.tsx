@@ -891,7 +891,7 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
           <div className="max-w-4xl mx-auto text-center space-y-12">
             <div>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                Leve o Método Pele Coreana 7D e todos os bônus por um valor simbólico
+                Leve o Método Pele Coreana 7D e todos os bônus por um valor simbólico 
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
                 Você está prestes a acessar um protocolo completo de rejuvenescimento coreano que poderia custar caro mas hoje está liberado por um valor simbólico.
