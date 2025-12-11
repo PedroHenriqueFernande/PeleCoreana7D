@@ -61,7 +61,14 @@ function App() {
   ];
 
   const redirectToCheckout = () => {
-    window.location.href = 'https://pay.cakto.com.br/7cn5uvv_616238';
+    window.location.href = 'https://www.ggcheckout.com/checkout/v2/khqYeQkb1NdZ8UmRtoFd';
+  };
+
+  const scrollToOfferSection = () => {
+    const target = document.getElementById('offer-section');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   useEffect(() => {
@@ -72,6 +79,27 @@ function App() {
       });
     }, 1000);
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll('section'));
+    sections.forEach((section) => section.classList.add('fade-section'));
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -117,6 +145,15 @@ function App() {
           font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif !important;
           letter-spacing: normal !important;
         }
+        .fade-section {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-section.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
       `}</style>
       <main>
         <section className="relative py-8 sm:py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -124,6 +161,8 @@ function App() {
             <img
               src="/esquerda1.png"
               alt="Rosto feminino à esquerda"
+              loading="eager"
+              decoding="async"
               className="h-full w-auto object-cover object-left"
               style={{
                 transform: 'translateX(-35%)',
@@ -136,6 +175,8 @@ function App() {
             <img
               src="/direita1.png"
               alt="Rosto feminino à direita"
+              loading="eager"
+              decoding="async"
               className="h-full w-auto object-cover object-right"
               style={{
                 transform: 'translateX(35%)',
@@ -155,7 +196,7 @@ function App() {
 
             <div className="pt-4">
               <button
-                onClick={redirectToCheckout}
+                onClick={scrollToOfferSection}
                 className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
               >
                 QUERO REJUVENESCER MINHA PELE
@@ -185,6 +226,8 @@ function App() {
                     key={index}
                     src={img}
                     alt={`Transformação ${index % beforeAfterImages.length + 1}`}
+                    loading="lazy"
+                    decoding="async"
                     className="h-56 sm:h-48 w-64 sm:w-52 rounded-none sm:rounded-xl object-cover shadow-md flex-shrink-0"
                   />
                 ))}
@@ -318,6 +361,8 @@ function App() {
               <img
                 src="/dor.jpg"
                 alt="Mulher sentindo dor com a pele sensível"
+                loading="lazy"
+                decoding="async"
                 className="w-full max-w-3xl rounded-2xl object-cover shadow-lg"
               />
               <div className="space-y-2">
@@ -421,6 +466,8 @@ function App() {
               <img
                 src="/beneficio1.jpg"
                 alt="Benefícios do método Pele Coreana 7D"
+                loading="lazy"
+                decoding="async"
                 className="w-full max-w-2xl rounded-2xl shadow-md object-cover"
               />
             </div>
@@ -509,6 +556,8 @@ function App() {
                   key={index}
                   src={img}
                   alt={`Transformação bônus ${index + 1}`}
+                  loading="lazy"
+                  decoding="async"
                   className="h-56 sm:h-48 w-64 sm:w-52 rounded-none sm:rounded-xl object-cover shadow-md flex-shrink-0"
                 />
               ))}
@@ -614,7 +663,7 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
           </div>
         </section>
 
-        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <section id="offer-section" className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
           <div className="text-center space-y-12">
             {/* Title */}
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
@@ -631,16 +680,22 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
               <img
                 src={fotoProduto1}
                 alt="Método Pele Coreana 7D - Imagem 1"
+                loading="lazy"
+                decoding="async"
                 className="absolute w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] h-auto object-contain drop-shadow-xl transform -rotate-12 left-1/2 -translate-x-1/2 transition-transform duration-300 hover:scale-110 z-10"
               />
               <img
                 src={fotoProduto2}
                 alt="Método Pele Coreana 7D - Imagem 2"
+                loading="lazy"
+                decoding="async"
                 className="absolute w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] h-auto object-contain drop-shadow-xl transform rotate-0 left-1/2 -translate-x-1/2 transition-transform duration-300 hover:scale-110 z-20"
               />
               <img
                 src={fotoProduto3}
                 alt="Método Pele Coreana 7D - Imagem 3"
+                loading="lazy"
+                decoding="async"
                 className="absolute w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] h-auto object-contain drop-shadow-xl transform rotate-12 left-1/2 -translate-x-1/2 transition-transform duration-300 hover:scale-110 z-30"
               />
             </div>
@@ -701,7 +756,13 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
                           <div className="bg-gold-100 text-gold-600 font-bold text-sm py-1 px-3 rounded-full mb-2 shadow">
                             {item.label}
                           </div>
-                          <img src={item.img} alt={item.title} className="w-full max-w-sm h-64 object-contain block mx-auto drop-shadow-lg" />
+                          <img
+                            src={item.img}
+                            alt={item.title}
+                            loading="lazy"
+                            decoding="async"
+                            className="w-full max-w-sm h-64 object-contain block mx-auto drop-shadow-lg"
+                          />
                           <h3 className="font-serif text-xl font-bold text-gray-900">
                             {item.title}
                           </h3>
