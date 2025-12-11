@@ -75,8 +75,8 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="fixed top-2 left-0 right-0 z-50 text-white text-center text-sm sm:text-base font-semibold py-2 px-4 shadow-lg"
+    <div className="min-h-screen bg-white pt-12 sm:pt-14">
+      <div className="fixed top-0 left-0 right-0 z-50 text-white text-center text-sm sm:text-base font-semibold py-2 px-4 shadow-lg"
            style={{ background: 'rgba(218, 165, 32, 0.55)' }}>
         Esta oferta acaba dia {offerDate}
       </div>
@@ -175,7 +175,7 @@ function App() {
            Se você deseja em apenas 7 dias rejuvenescer sua pele e deixar ela com uma aparência mais jovem, iluminada e saudável sem precisar de cremes milagrosos que sustam uma fortuna e não entregam nada?
               <br />Se sua resposta for sim, então conheça o Método Pele Coreana, o único método que vai estimular o colágeno natural e preencher sua pele de dentro para fora. Mas antes de pensar que esse é um método qualquer, pode ficar tranquila, não é nada disso. O Método Pele Coreana é um método natural, 100% comprovado científicamente, utilizado por milhões de Coreanas, que são referencias em beleza no mundo todo e que ja mudaram a pele de mais de 15.000 Brasileiras. 
             </p>
-            <div className="relative overflow-hidden -mx-4 sm:mx-0 rounded-none sm:rounded-2xl border-0 sm:border-2 border-gold-100 shadow-xl bg-white/70">
+            <div className="relative overflow-hidden -mx-4 sm:mx-0 rounded-none sm:rounded-2xl border-0 sm:border-2 border-gold-100 shadow-xl bg-white/70 min-h-[14rem]">
               <div
                 className="flex gap-2 sm:gap-4 min-w-max"
                 style={{ animation: 'marqueeScroll 28s linear infinite' }}
