@@ -146,11 +146,11 @@ function App() {
           </div>
           <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
             <h1 className="font-oswald text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-              ESSE É O MÉTODO COREANO QUE ACABOU COM AS RUGAS DE MAIS DE 15.000 BRASILEIRAS EM 7 DIAS
+              ESSE É O MÉTODO COREANO QUE <span style={{ color: '#D4B98C' }}>ACABOU COM AS RUGAS</span> DE MAIS DE 15.000 BRASILEIRAS EM 7 DIAS
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Este são as técnicas importadas diretamente do país mais vaidoso do mundo adaptada para rotina das brasileiras que suaviza rugas, devolve firmeza e traz o glow natural de pele jovem, usando apenas ingredientes básicos que você tem em casa e um protocolo de 5 minutos por dia.
+              Este são as técnicas importadas diretamente do país mais vaidoso do mundo adaptada para rotina das brasileiras que <span style={{ color: '#D4B98C' }}>suaviza rugas, devolve firmeza e traz o glow natural de pele jovem</span>, usando apenas ingredientes básicos que você tem em casa e um protocolo de 5 minutos por dia.
             </p>
 
             <div className="pt-4">
@@ -172,8 +172,8 @@ function App() {
               PARE TUDO POR 2 MINUTOS
             </h2>
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-           Se você deseja em apenas 7 dias rejuvenescer sua pele e deixar ela com uma aparência mais jovem, iluminada e saudável sem precisar de cremes milagrosos que sustam uma fortuna e não entregam nada?
-              <br />Se sua resposta for sim, então conheça o Método Pele Coreana, o único método que vai estimular o colágeno natural e preencher sua pele de dentro para fora. Mas antes de pensar que esse é um método qualquer, pode ficar tranquila, não é nada disso. O Método Pele Coreana é um método natural, 100% comprovado científicamente, utilizado por milhões de Coreanas, que são referencias em beleza no mundo todo e que ja mudaram a pele de mais de 15.000 Brasileiras. 
+           Se você deseja em apenas 7 dias <span style={{ color: '#D4B98C' }}>rejuvenescer sua pele e deixar ela com uma aparência mais jovem, iluminada e saudável</span> sem precisar de cremes milagrosos que sustam uma fortuna e não entregam nada?
+              <br />Se sua resposta for sim, então conheça o Método Pele Coreana, <span style={{ color: '#D4B98C' }}>o único método que vai estimular o colágeno natural e preencher sua pele de dentro para fora</span>. Mas antes de pensar que esse é um método qualquer, pode ficar tranquila, não é nada disso. O Método Pele Coreana é um método natural, 100% comprovado científicamente, utilizado por milhões de Coreanas, que são referencias em beleza no mundo todo e que <span style={{ color: '#D4B98C' }}>ja mudou a pele de mais de 15.000 brasileiras</span>.
             </p>
             <div className="relative overflow-hidden -mx-4 sm:mx-0 rounded-none sm:rounded-2xl border-0 sm:border-2 border-gold-100 shadow-xl bg-white/70 min-h-[14rem]">
               <div
@@ -185,7 +185,7 @@ function App() {
                     key={index}
                     src={img}
                     alt={`Transformação ${index % beforeAfterImages.length + 1}`}
-                    className="h-56 sm:h-48 w-auto rounded-none sm:rounded-xl object-cover shadow-md flex-shrink-0"
+                    className="h-56 sm:h-48 w-64 sm:w-52 rounded-none sm:rounded-xl object-cover shadow-md flex-shrink-0"
                   />
                 ))}
               </div>
@@ -203,7 +203,7 @@ function App() {
 
             {/* Subheadline */}
             <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              As rugas e a perda de firmeza vão aparecendo aos poucos… até que um dia você olha no espelho e percebe que não dá mais para ignorar.
+              As <span className="text-red-600 font-semibold">rugas</span> e a <span className="text-red-600 font-semibold">perda de firmeza</span> vão aparecendo aos poucos… até que um dia você olha no espelho e percebe que não dá mais para ignorar.
             </p>
 
             {/* Pain Points List */}
@@ -240,13 +240,16 @@ function App() {
                   desc: 'As rugas não esperam. Elas aprofundam.'
                 }
               ].map((item, index) => (
-                <div key={index} className="flex gap-4 items-start p-4 rounded-xl hover:bg-gold-50/50 transition-colors">
-                  <div className="flex-shrink-0 w-10 h-10 bg-gold-100 rounded-full flex items-center justify-center mt-1">
-                    <item.icon className="w-5 h-5 text-gold-500" />
+                <div
+                  key={index}
+                  className="flex items-center gap-4 p-5 sm:p-6 rounded-2xl border border-red-200 bg-white shadow-sm"
+                >
+                  <div className="flex-shrink-0 w-12 h-12 bg-red-50 rounded-full flex items-center justify-center border border-red-100">
+                    <item.icon className="w-5 h-5 text-red-500" />
                   </div>
-                  <div className="space-y-1">
+                  <div className="space-y-1 text-center w-full">
                     <h3 className="font-bold text-gray-900 text-lg">{item.title}</h3>
-                    <p className="text-gray-500 leading-relaxed">{item.desc}</p>
+                    <p className="text-gray-600 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -298,14 +301,14 @@ function App() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl border border-red-300 shadow-md p-5 sm:p-6 flex gap-4 items-start"
+                  className="rounded-2xl border border-red-200 bg-white shadow-sm p-5 sm:p-6 flex items-center gap-4"
                 >
-                  <div className="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 bg-red-50 rounded-full flex items-center justify-center shadow-sm">
+                  <div className="flex-shrink-0 w-12 h-12 sm:w-12 sm:h-12 bg-red-50 rounded-full flex items-center justify-center border border-red-100">
                     <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-red-500" />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-2 text-center w-full">
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900">{item.title}</h3>
-                    <p className="text-gray-600">{item.desc}</p>
+                    <p className="text-gray-700">{item.desc}</p>
                   </div>
                 </div>
               ))}
