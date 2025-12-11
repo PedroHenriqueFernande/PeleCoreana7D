@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Sparkles, Clock, Leaf, Heart, Star, Shield, CheckCircle2, ChevronRight, Eye, TrendingDown, Ban, Cloud, AlertTriangle, Smile, Droplets, Zap, Book, Calendar, Timer } from 'lucide-react';
 import antesDepois from './assets/Antes-e-Depois-1.jpg';
 import fotoBonus1 from './assets/Foto-do-Bonus-1.png';
-import fotoBonus2 from './assets/Foto-do-Bonus-2.png';
 import antesDepois2 from './assets/Antes-e-Depois-2.png';
 import antesDepois3 from './assets/Antes-e-Depois-3.jpg';
 import antesDepois4 from './assets/Antes-e-Depois-4.png';
@@ -34,7 +33,7 @@ function App() {
   const bonusItems = [
     {
       label: 'BÔNUS 1',
-      img: fotoBonus1,
+      img: '/b1.png',
       title: '72 HORAS SEM OLHEIRA',
       what: 'Um protocolo de emergência que reduz olheiras, inchaço e marcas ao redor dos olhos em apenas 3 dias.',
       why: 'A área dos olhos é onde o envelhecimento aparece primeiro e quando ela rejuvenesce, o rosto inteiro parece mais jovem.',
@@ -43,7 +42,7 @@ function App() {
     },
     {
       label: 'BÔNUS 2',
-      img: fotoBonus2,
+      img: '/b2.png',
       title: 'Detox Facial Coreano 48h',
       what: 'Um protocolo de desintoxicação que limpa poros, remove impurezas e prepara sua pele para absorver melhor o Método Pele Coreana 7D.',
       why: 'Pele limpa = melhor absorção = efeito mais rápido da máscara coreana.',
@@ -892,7 +891,7 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
           <div className="max-w-4xl mx-auto text-center space-y-12">
             <div>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                Leve o Método Pele Coreana 7D + Todos os Bônus Por Apenas R$ 29,90
+                Leve o Método Pele Coreana 7D e todos os bônus por um valor simbólico
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
                 Você está prestes a acessar um protocolo completo de rejuvenescimento coreano que poderia custar caro mas hoje está liberado por um valor simbólico.
