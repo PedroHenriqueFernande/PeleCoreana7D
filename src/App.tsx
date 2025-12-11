@@ -13,6 +13,7 @@ import fotoProduto3 from './assets/Foto-do-Produto-3.png';
 
 function App() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+  const [bonusIndex, setBonusIndex] = useState(0);
 
   const beforeAfterImages = [
     antesDepois,
@@ -26,6 +27,36 @@ function App() {
 
   const scrollingImages = [...beforeAfterImages, ...beforeAfterImages];
 
+  const bonusItems = [
+    {
+      label: 'BÔNUS 1',
+      img: fotoBonus1,
+      title: '72 HORAS SEM OLHEIRA',
+      what: 'Um protocolo de emergência que reduz olheiras, inchaço e marcas ao redor dos olhos em apenas 3 dias.',
+      why: 'A área dos olhos é onde o envelhecimento aparece primeiro e quando ela rejuvenesce, o rosto inteiro parece mais jovem.',
+      bullets: ['Compressa de efeito lifting', 'Máscara natural para clareamento', 'Rotina anti-inchaço', 'Guia de aplicação e frequência'],
+      value: 'R$ 47,00'
+    },
+    {
+      label: 'BÔNUS 2',
+      img: fotoBonus2,
+      title: 'Detox Facial Coreano 48h',
+      what: 'Um protocolo de desintoxicação que limpa poros, remove impurezas e prepara sua pele para absorver melhor o Método Pele Coreana 7D.',
+      why: 'Pele limpa = melhor absorção = efeito mais rápido da máscara coreana.',
+      bullets: ['Máscara de limpeza profunda', 'Ritual calmante de chá verde', 'Guia de frequência ideal'],
+      value: 'R$ 39,00'
+    },
+    {
+      label: 'BÔNUS 3',
+      img: fotoBonus1,
+      title: 'Rotina Caseira Para Todos os Tipos de Pele',
+      what: 'Um guia completo com receitas naturais, hidratantes, tônicos e rotinas para manter sua pele bonita todos os dias.',
+      why: 'Garante que você mantenha os efeitos do Método Pele Coreana 7D por semanas e semanas.',
+      bullets: ['Rotina para pele oleosa', 'Rotina para pele seca', 'Máscaras naturais', 'Tônicos caseiros', 'Dicas práticas de manutenção'],
+      value: 'R$ 59,00'
+    }
+  ];
+
   const redirectToCheckout = () => {
     window.location.href = 'https://pay.cakto.com.br/7cn5uvv_616238';
   };
@@ -36,6 +67,16 @@ function App() {
         @keyframes marqueeScroll {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
+        }
+        @keyframes pricePulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+          100% { transform: scale(1); }
+        }
+        @keyframes gentlePush {
+          0% { transform: translateX(0); }
+          50% { transform: translateX(4px); }
+          100% { transform: translateX(0); }
         }
         h1, h2, h3, h4, h5,
         .font-serif {
@@ -109,7 +150,7 @@ function App() {
               PARE TUDO POR 2 MINUTOS
             </h2>
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Você deseja em apenas 7 dias rejuvenescer sua pele e deixar ela com uma aparência mais jovem, iluminada e saudável sem precisar de cremes milagrosos que sustam uma fortuna e não entregam nada?
+           Se você deseja em apenas 7 dias rejuvenescer sua pele e deixar ela com uma aparência mais jovem, iluminada e saudável sem precisar de cremes milagrosos que sustam uma fortuna e não entregam nada?
               <br />Se sua resposta for sim, então conheça o Método Pele Coreana, o único método que vai estimular o colágeno natural e preencher sua pele de dentro para fora. Mas antes de pensar que esse é um método qualquer, pode ficar tranquila, não é nada disso. O Método Pele Coreana é um método natural, 100% comprovado científicamente, utilizado por milhões de Coreanas, que são referencias em beleza no mundo todo e que ja mudaram a pele de mais de 15.000 Brasileiras. 
             </p>
             <div className="relative overflow-hidden -mx-4 sm:mx-0 rounded-none sm:rounded-2xl border-0 sm:border-2 border-gold-100 shadow-xl bg-white/70">
@@ -324,6 +365,15 @@ function App() {
                 ))}
               </div>
             </div>
+
+            <div className="pt-6">
+              <button
+                onClick={redirectToCheckout}
+                className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
+              >
+                QUERO REJUVENESCER MINHA PELE
+              </button>
+            </div>
           </div>
         </section>
 
@@ -411,14 +461,32 @@ function App() {
               <p className="text-xl font-bold text-gray-800">
                 Seu rosto começa a transformar, em 7 dias você já sente a diferença no espelho.
               </p>
+            </div>
 
-              {/* CTA Button */}
-              <button
-                onClick={redirectToCheckout}
-                className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
-              >
-                QUERO REJUVENESCER MINHA PELE
-              </button>
+            <button
+              onClick={redirectToCheckout}
+              className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
+            >
+              QUERO REJUVENESCER MINHA PELE
+            </button>
+          </div>
+        </section>
+
+        {/* Esteira de fotos 7d, 8d, 9d */}
+        <section className="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <div className="relative overflow-hidden -mx-4 sm:mx-0 rounded-none sm:rounded-2xl border-0 sm:border-2 border-gold-100 shadow-xl bg-white/70">
+            <div
+              className="flex gap-2 sm:gap-4 w-max"
+              style={{ animation: 'marqueeScroll 24s linear infinite' }}
+            >
+              {['/7d.jpg', '/8d.jpg', '/9d.jpg', '/7d.jpg', '/8d.jpg', '/9d.jpg'].map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt={`Transformação bônus ${index + 1}`}
+                  className="h-56 sm:h-48 w-64 sm:w-52 rounded-none sm:rounded-xl object-cover shadow-md flex-shrink-0"
+                />
+              ))}
             </div>
           </div>
         </section>
@@ -469,7 +537,7 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
 
             {/* Subheadline */}
             <p className="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
-              O Método Pele Coreana 7D está disponível por tempo limitado de <span className="text-red-600 line-through decoration-red-600 decoration-2 font-bold">R$ 229,90</span> por apenas <span className="font-bold text-gold-500">R$ 29,90</span>.
+              O Método Pele Coreana 7D está disponível por tempo limitado de <span className="text-red-600 line-through decoration-red-600 decoration-2 font-bold">R$ 229,90</span> por apenas <span className="font-bold text-green-600">R$ 29,90</span>.
               <br />
               Aproveite enquanto a oferta está liberada.
             </p>
@@ -518,7 +586,7 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
 
             {/* Subheadline */}
             <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
-              Um protocolo prático, organizado e fiel ao ritual tradicional coreano, pronto para você aplicar por 7 dias e rejuvenescer sua pele de forma natural.
+              Um protocolo prático, organizado e fiel ao tradicional coreano, pronto para você aplicar por 7 dias e rejuvenescer sua pele de forma natural.
             </p>
 
             {/* Product Mockup Fan */}
@@ -545,7 +613,7 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
               {/* Product Features - Detailed Bullets */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left max-w-4xl mx-auto">
                 {[
-                  { icon: Book, text: 'Receita oficial da Máscara Coreana 7D' },
+                  { icon: Book, text: 'Efeito Lifting Natural Coreano passo a passo' },
                   { icon: Clock, text: 'Ritual diário completo de 5 minutos' },
                   { icon: Calendar, text: 'Cronograma da semana passo a passo (Dia 1 ao Dia 7)' },
                   { icon: Timer, text: 'Guia de aplicação + tempos corretos de pausa' },
@@ -564,127 +632,80 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
                 ))}
               </div>
             </div>
-
-            {/* CTA Button */}
-            <div className="pt-4">
-              <button
-                onClick={redirectToCheckout}
-                className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
-              >
-                QUERO REJUVENESCER MINHA PELE
-              </button>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-          <div className="text-center space-y-12">
-            <div>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                E Ainda Recebe Tudo Isso Como Presente Hoje
-              </h2>
-              <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
-                Para acelerar seus resultados e potencializar o efeito do Método Pele Coreana 7D, você recebe 3 bônus exclusivos totalmente gratuitos.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Bonus 1 */}
-              <div className="bg-white rounded-2xl p-6 border-2 border-gold-100 shadow-lg hover:shadow-xl transition-shadow flex flex-col">
-                <div className="bg-gold-100 text-gold-600 font-bold text-sm py-1 px-3 rounded-full self-center mb-4">
-                  🎁 BÔNUS 1
-                </div>
-                <img src={fotoBonus1} alt="72 Horas Sem Olheiras" className="w-full h-48 object-contain mb-6" />
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
-                  72 Horas Sem Olheiras
-                </h3>
-                <div className="text-left space-y-4 flex-grow">
-                  <div>
-                    <p className="font-semibold text-gray-800 text-sm">O que é:</p>
-                    <p className="text-gray-600 text-sm">Um protocolo de emergência que reduz olheiras, inchaço e marcas ao redor dos olhos em apenas 3 dias.</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-800 text-sm">Por que acelera:</p>
-                    <p className="text-gray-600 text-sm">A área dos olhos é onde o envelhecimento aparece primeiro — e quando ela rejuvenesce, o rosto inteiro parece mais jovem.</p>
-                  </div>
-                  <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
-                    <li>Compressa de efeito lifting</li>
-                    <li>Máscara natural para clareamento</li>
-                    <li>Rotina anti-inchaço</li>
-                    <li>Guia de aplicação e frequência</li>
-                  </ul>
-                </div>
-                <div className="mt-6 pt-4 border-t border-gray-100 text-center">
-                  <p className="text-sm text-gray-500">Valor sugerido:</p>
-                  <p className="text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 47,00</p>
-                  <p className="text-gold-500 font-bold text-xl mt-1">Você paga: R$ 0</p>
-                </div>
+            <div className="space-y-12 pt-10">
+              <div>
+                <h2
+                  className="font-serif text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 text-center"
+                  style={{ animation: 'gentlePush 2.5s ease-in-out infinite' }}
+                >
+                  CONDIÇÃO ÚNICA PARA VOCÊ 
+                </h2>
+                <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto text-center">
+                 Não perca essa oportunidade de transformar sua pele. Aproveite e leve mais 3 bônus exclusivos que vão melhorar ainda mais seus resultados!
+                </p>
               </div>
 
-              {/* Bonus 2 */}
-              <div className="bg-white rounded-2xl p-6 border-2 border-gold-100 shadow-lg hover:shadow-xl transition-shadow flex flex-col">
-                <div className="bg-gold-100 text-gold-600 font-bold text-sm py-1 px-3 rounded-full self-center mb-4">
-                  🎁 BÔNUS 2
-                </div>
-                <img src={fotoBonus2} alt="Detox Facial Coreano 48h" className="w-full h-48 object-contain mb-6" />
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
-                  Detox Facial Coreano 48h
-                </h3>
-                <div className="text-left space-y-4 flex-grow">
-                  <div>
-                    <p className="font-semibold text-gray-800 text-sm">O que é:</p>
-                    <p className="text-gray-600 text-sm">Um protocolo de desintoxicação que limpa poros, remove impurezas e prepara sua pele para absorver melhor o Método Pele Coreana 7D.</p>
+              <div className="space-y-4">
+                <div className="relative overflow-hidden rounded-2xl w-full min-h-[32rem]">
+                  <div
+                    className="flex transition-transform duration-500 ease-out w-full h-full"
+                    style={{ transform: `translateX(-${bonusIndex * 100}%)` }}
+                  >
+                    {bonusItems.map((item, index) => (
+                      <div key={index} className="w-full flex-shrink-0 px-2 flex justify-center items-stretch">
+                        <div className="bg-white rounded-2xl p-6 border-2 border-gold-100 shadow-lg hover:shadow-xl transition-shadow flex flex-col h-full items-center text-center gap-4 max-w-xl w-full">
+                          <div className="bg-gold-100 text-gold-600 font-bold text-sm py-1 px-3 rounded-full mb-2">
+                            {item.label}
+                          </div>
+                          <img src={item.img} alt={item.title} className="w-full h-48 object-contain block mx-auto" />
+                          <h3 className="font-serif text-xl font-bold text-gray-900">
+                            {item.title}
+                          </h3>
+                          <div className="space-y-4 flex-grow w-full">
+                            <div className="text-gray-600 text-sm leading-relaxed text-center">
+                              {item.what}
+                            </div>
+                            <div className="text-center space-y-2 w-full">
+                              <p className="font-semibold text-gray-800 text-sm">Por que acelera:</p>
+                              <p className="text-gray-600 text-sm">{item.why}</p>
+                              <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside text-left inline-block">
+                                {item.bullets.map((b, i) => (
+                                  <li key={i}>{b}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                          <div className="mt-4 pt-4 border-t border-gray-100 text-center w-full">
+                            <p className="text-sm text-gray-500">Valor sugerido:</p>
+                            <p className="text-red-600 font-bold line-through decoration-red-600 decoration-2">{item.value}</p>
+                            <p className="text-green-600 font-extrabold text-xl mt-1">GRÁTIS</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  <div>
-                    <p className="font-semibold text-gray-800 text-sm">Por que acelera:</p>
-                    <p className="text-gray-600 text-sm">Pele limpa = melhor absorção = efeito mais rápido da máscara coreana.</p>
-                  </div>
-                  <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
-                    <li>Máscara de limpeza profunda</li>
-                    <li>Ritual calmante de chá verde</li>
-                    <li>Guia de frequência ideal</li>
-                  </ul>
+                  <button
+                    onClick={() => setBonusIndex((prev) => (prev - 1 + bonusItems.length) % bonusItems.length)}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 px-3 py-2 rounded-full bg-gold-100 text-gold-700 font-semibold shadow hover:bg-gold-200 transition"
+                  >
+                    ‹
+                  </button>
+                  <button
+                    onClick={() => setBonusIndex((prev) => (prev + 1) % bonusItems.length)}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-2 rounded-full bg-gold-100 text-gold-700 font-semibold shadow hover:bg-gold-200 transition"
+                  >
+                    ›
+                  </button>
                 </div>
-                <div className="mt-6 pt-4 border-t border-gray-100 text-center">
-                  <p className="text-sm text-gray-500">Valor sugerido:</p>
-                  <p className="text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 39,00</p>
-                  <p className="text-gold-500 font-bold text-xl mt-1">Você paga: R$ 0</p>
+                <div className="flex justify-center gap-2">
+                  {bonusItems.map((_, i) => (
+                    <span
+                      key={i}
+                      className={`h-2 w-2 rounded-full ${i === bonusIndex ? 'bg-gold-500' : 'bg-gold-200'}`}
+                    />
+                  ))}
                 </div>
               </div>
-
-              {/* Bonus 3 */}
-              <div className="bg-white rounded-2xl p-6 border-2 border-gold-100 shadow-lg hover:shadow-xl transition-shadow flex flex-col">
-                <div className="bg-gold-100 text-gold-600 font-bold text-sm py-1 px-3 rounded-full self-center mb-4">
-                  🎁 BÔNUS 3
-                </div>
-                <img src={fotoBonus1} alt="Rotina Caseira Para Todos os Tipos de Pele" className="w-full h-48 object-contain mb-6" />
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
-                  Rotina Caseira Para Todos os Tipos de Pele
-                </h3>
-                <div className="text-left space-y-4 flex-grow">
-                  <div>
-                    <p className="font-semibold text-gray-800 text-sm">O que é:</p>
-                    <p className="text-gray-600 text-sm">Um guia completo com receitas naturais, hidratantes, tônicos e rotinas para manter sua pele bonita todos os dias.</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-800 text-sm">Por que acelera:</p>
-                    <p className="text-gray-600 text-sm">Garante que você mantenha os efeitos do Método Pele Coreana 7D por semanas e semanas.</p>
-                  </div>
-                  <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
-                    <li>Rotina para pele oleosa</li>
-                    <li>Rotina para pele seca</li>
-                    <li>Máscaras naturais</li>
-                    <li>Tônicos caseiros</li>
-                    <li>Dicas práticas de manutenção</li>
-                  </ul>
-                </div>
-                <div className="mt-6 pt-4 border-t border-gray-100 text-center">
-                  <p className="text-sm text-gray-500">Valor sugerido:</p>
-                  <p className="text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 59,00</p>
-                  <p className="text-gold-500 font-bold text-xl mt-1">Você paga: R$ 0</p>
-                </div>
-              </div>
-            </div>
 
             {/* Micro Headline & CTA */}
             <div className="space-y-6 pt-8">
@@ -699,7 +720,7 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
                 QUERO REJUVENESCER MINHA PELE HOJE
               </button>
             </div>
-
+            </div>
           </div>
         </section>
 
@@ -729,7 +750,7 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
                   </div>
                   <div>
                     <p className="text-sm text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 97,00</p>
-                    <p className="font-bold text-gold-500 text-xl">R$ 29,90</p>
+                    <p className="font-bold text-green-600 text-xl">R$ 29,90</p>
                   </div>
                 </div>
 
@@ -741,7 +762,7 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
                   </div>
                   <div>
                     <p className="text-sm text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 47,00</p>
-                    <p className="font-bold text-green-600 text-xl">R$ 0,00</p>
+                    <p className="font-bold text-green-600 text-xl">GRÁTIS</p>
                   </div>
                 </div>
 
@@ -753,7 +774,7 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
                   </div>
                   <div>
                     <p className="text-sm text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 39,00</p>
-                    <p className="font-bold text-green-600 text-xl">R$ 0,00</p>
+                    <p className="font-bold text-green-600 text-xl">GRÁTIS</p>
                   </div>
                 </div>
 
@@ -765,7 +786,7 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
                   </div>
                   <div>
                     <p className="text-sm text-red-600 font-bold line-through decoration-red-600 decoration-2">R$ 59,00</p>
-                    <p className="font-bold text-green-600 text-xl">R$ 0,00</p>
+                    <p className="font-bold text-green-600 text-xl">GRÁTIS</p>
                   </div>
                 </div>
 
@@ -777,19 +798,19 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
                   </div>
                   <div className="flex justify-between items-end">
                     <span className="text-gray-900 font-bold text-xl">Você paga HOJE:</span>
-                    <span className="text-4xl font-bold text-green-600">R$ 29,90</span>
+                    <span className="text-4xl font-bold text-green-600" style={{ animation: 'pricePulse 1.5s ease-in-out infinite' }}>R$ 29,90</span>
                   </div>
                 </div>
                 {/* CTA diretamente abaixo do preço */}
-                <button
-                  onClick={redirectToCheckout}
-                  className="relative mx-auto w-48 h-32 bg-gradient-to-r from-gold-300 to-gold-400 text-white font-bold text-lg flex flex-col items-center justify-center text-center hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 animate-pulse shadow-gold-glow"
-                  style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }}
-                >
-                  QUERO REJUVENESCER
-                  <span className="text-base">MINHA PELE AGORA</span>
-                  <span className="block text-xs font-normal mt-1 opacity-90">Acesso imediato por R$ 29,90</span>
-                </button>
+                <div className="flex justify-center">
+                  <button
+                    onClick={redirectToCheckout}
+                className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-8 py-4 rounded-full font-bold text-lg flex flex-col items-center justify-center text-center hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 animate-pulse shadow-gold-glow"
+              >
+                QUERO REJUVENESCER
+                <span className="text-base">MINHA PELE AGORA</span>
+              </button>
+            </div>
               </div>
             </div>
 
@@ -811,6 +832,10 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
                 <div className="flex items-center gap-2">
                   <Zap className="w-5 h-5 text-green-500" />
                   <span>Acesso Imediato</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-green-500" />
+                  <span>Garantia de 30 Dias</span>
                 </div>
               </div>
 
