@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Sparkles, Clock, Leaf, Heart, Star, Shield, CheckCircle2, ChevronRight, ChevronLeft, Eye, TrendingDown, Ban, Cloud, AlertTriangle, Smile, Droplets, Zap, Book, Calendar, Timer } from 'lucide-react';
+import { Sparkles, Clock, Leaf, Heart, Star, Shield, CheckCircle2, ChevronRight, Eye, TrendingDown, Ban, Cloud, AlertTriangle, Smile, Droplets, Zap, Book, Calendar, Timer } from 'lucide-react';
 import antesDepois from './assets/Antes-e-Depois-1.jpg';
 import fotoBonus1 from './assets/Foto-do-Bonus-1.png';
 import fotoBonus2 from './assets/Foto-do-Bonus-2.png';
@@ -12,7 +12,6 @@ import fotoProduto2 from './assets/Foto-do-Produto-2.png';
 import fotoProduto3 from './assets/Foto-do-Produto-3.png';
 
 function App() {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const beforeAfterImages = [
@@ -25,44 +24,54 @@ function App() {
     '/6d.png'
   ];
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % beforeAfterImages.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + beforeAfterImages.length) % beforeAfterImages.length);
-  };
+  const scrollingImages = [...beforeAfterImages, ...beforeAfterImages];
 
   const redirectToCheckout = () => {
     window.location.href = 'https://pay.cakto.com.br/7cn5uvv_616238';
   };
 
-
-
   return (
     <div className="min-h-screen bg-white">
+      <style>{`
+        @keyframes marqueeScroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
       <main>
-        <section className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
+        <section className="relative py-8 sm:py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+          <div className="absolute left-0 top-6 h-72 w-20 sm:h-80 sm:w-24 md:w-32 lg:w-36 overflow-hidden pointer-events-none">
+            <img
+              src="/esquerda1.png"
+              alt="Rosto feminino à esquerda"
+              className="h-full w-auto object-cover object-left"
+              style={{
+                transform: 'translateX(-35%)',
+                maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)'
+              }}
+            />
+          </div>
+          <div className="absolute right-0 top-6 h-72 w-20 sm:h-80 sm:w-24 md:w-32 lg:w-36 overflow-hidden pointer-events-none">
+            <img
+              src="/direita1.png"
+              alt="Rosto feminino à direita"
+              className="h-full w-auto object-cover object-right"
+              style={{
+                transform: 'translateX(35%)',
+                maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)'
+              }}
+            />
+          </div>
+          <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
             <h1 className="font-oswald text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-              Dê Um Choque de Juventude na Sua Pele em 7 Dias com Este Método
+              ESSE É O MÉTODO COREANO QUE REJUVENESCEU A PELE DE MAIS DE 15.000 BRASILEIRAS EM APENAS 7 DIAS
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
               Este é o ritual importado diretamente do país mais vaidoso do mundo que suaviza rugas, devolve firmeza e traz o glow natural de pele jovem, usando apenas ingredientes básicos que você tem em casa e um protocolo de 5 minutos por dia.
             </p>
-
-            {/* VSL Player Placeholder */}
-            <div className="w-full max-w-sm mx-auto aspect-[9/16] bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl flex items-center justify-center my-8 border-2 border-gold-200">
-              <div className="text-center space-y-4">
-                <div className="w-20 h-20 mx-auto bg-gold-400 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-pointer">
-                  <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <p className="text-white text-sm font-medium">Inserir VSL aqui</p>
-              </div>
-            </div>
 
             <div className="pt-4">
               <button
@@ -74,81 +83,93 @@ function App() {
               <p className="text-sm text-gray-600 mt-3">Apenas R$ 29,90 — acesso imediato ao Método Pele Coreana 7D</p>
             </div>
 
-            {/* Before/After Transformation Carousel Section */}
-            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gold-50">
-              <div className="max-w-5xl mx-auto text-center space-y-8">
-                {/* Main Title */}
-                <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
-                  Veja a Transformação Real Que o Método Pele Coreana 7D Proporciona
-                </h2>
+          </div>
+        </section>
 
-                {/* Subheadline */}
-                <div className="space-y-2">
-                  <p className="text-xl font-semibold text-gray-800">Mulheres reais. Resultados reais.</p>
-                  <p className="text-lg text-gray-600">Cada imagem abaixo é uma aplicação de 7 dias do ritual coreano.</p>
-                </div>
-
-                {/* Carousel */}
-                <div className="relative max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto">
-                  {/* Main Image Container */}
-                  <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-                    <img
-                      src={beforeAfterImages[currentSlide]}
-                      alt={`Transformação ${currentSlide + 1}`}
-                      className="w-full h-auto object-contain"
-                    />
-                  </div>
-
-                  {/* Navigation Arrows */}
-                  <button
-                    onClick={prevSlide}
-                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
-                    aria-label="Imagem anterior"
-                  >
-                    <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" />
-                  </button>
-
-                  <button
-                    onClick={nextSlide}
-                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
-                    aria-label="Próxima imagem"
-                  >
-                    <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" />
-                  </button>
-
-                  {/* Dots Indicator */}
-                  <div className="flex justify-center gap-2 mt-6">
-                    {beforeAfterImages.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentSlide(index)}
-                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${currentSlide === index
-                          ? 'bg-gold-400 w-8'
-                          : 'bg-gray-300 hover:bg-gray-400'
-                          }`}
-                        aria-label={`Ir para imagem ${index + 1}`}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                {/* Micro Headline */}
-                <p className="text-lg sm:text-xl font-semibold text-gray-800 max-w-3xl mx-auto pt-4">
-                  Pele visivelmente mais jovem em 7 dias. Sem procedimentos, sem cremes caros.
-                </p>
-
-                {/* CTA Button */}
-                <div className="pt-4">
-                  <button
-                    onClick={redirectToCheckout}
-                    className="bg-gradient-to-r from-gold-300 to-gold-400 text-white px-6 py-3 rounded-full font-semibold text-lg hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
-                  >
-                    QUERO REJUVENESCER MINHA PELE
-                  </button>
-                </div>
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
+              PARE TUDO POR 2 MINUTOS
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              Você deseja em apenas 7 dias rejuvenescer sua pele e deixar ela com uma aparência mais jovem, iluminada e saudável sem precisar de cremes milagrosos que sustam uma fortuna e não entregam nada?
+              <br />Se sua resposta for sim, então conheça o Método Pele Coreana, o único método que vai estimular o colágeno natural e preencher sua pele de dentro para fora. Mas antes de pensar que esse é um método qualquer, pode ficar tranquila, não é nada disso. O Método Pele Coreana é um método natural, 100% comprovado científicamente, utilizado por milhões de Coreanas, que são referencias em beleza no mundo todo e que ja mudaram a pele de mais de 15.000 Brasileiras. 
+            </p>
+            <div className="relative overflow-hidden -mx-4 sm:mx-0 rounded-none sm:rounded-2xl border-0 sm:border-2 border-gold-100 shadow-xl bg-white/70">
+              <div
+                className="flex gap-2 sm:gap-4 w-max"
+                style={{ animation: 'marqueeScroll 28s linear infinite' }}
+              >
+                {scrollingImages.map((img, index) => (
+                  <img
+                    key={index}
+                    src={img}
+                    alt={`Transformação ${index % beforeAfterImages.length + 1}`}
+                    className="h-56 sm:h-48 w-auto rounded-none sm:rounded-xl object-cover shadow-md flex-shrink-0"
+                  />
+                ))}
               </div>
-            </section>
+            </div>
+          </div>
+        </section>
 
+        <section className="py-14 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto space-y-8 text-center">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
+              INSISTIR NA MESMICE NÃO VAI DIMINUIR SUAS RUGAS
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              O problema é que as pessoas ainda tentam insistir nos mesmos caminhos que sempre falham. Todas acabam caindo na indústria da beleza com:
+            </p>
+
+            <div className="space-y-4">
+              {[
+                {
+                  title: 'Cremes caros',
+                  desc: 'Que prometem trazer de volta a sua pele jovial, mas os dias passam e sua pele não muda...',
+                  icon: Ban
+                },
+                {
+                  title: 'Fazer máscaras aleatórias',
+                  desc: 'Misturas caseiras sem técnica, sem constância e sem resultado real.',
+                  icon: Sparkles
+                },
+                {
+                  title: 'Comprar produtos porque a blogueira disse que funciona',
+                  desc: 'Muitas influenciadoras indicam o que recebem, não o que realmente funciona.',
+                  icon: Cloud
+                }
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl border border-red-300 shadow-md p-5 sm:p-6 flex gap-4 items-start"
+                >
+                  <div className="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 bg-red-50 rounded-full flex items-center justify-center shadow-sm">
+                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-red-500" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900">{item.title}</h3>
+                    <p className="text-gray-600">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-8 flex flex-col items-center space-y-4">
+              <img
+                src="/dor.jpg"
+                alt="Mulher sentindo dor com a pele sensível"
+                className="w-full max-w-3xl rounded-2xl object-cover shadow-lg"
+              />
+              <div className="space-y-2">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+                  ESSES MÉTODOS FORAM CRIADOS APENAS PARA VENDER
+                </h3>
+                <p className="text-base sm:text-lg text-gray-600">
+                  Essas &#39;&#39;soluções&#39;&#39; podem até fazer uma pequena diferença no seu rosto, mas não são sustentáveis a longo prazo, nem seguras. Pense quantas vezes você deixou de usar um produto porquê não fez bem para sua pele?
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -733,6 +754,16 @@ function App() {
                     <span className="text-4xl font-bold text-green-600">R$ 29,90</span>
                   </div>
                 </div>
+                {/* CTA diretamente abaixo do preço */}
+                <button
+                  onClick={redirectToCheckout}
+                  className="relative mx-auto w-48 h-32 bg-gradient-to-r from-gold-300 to-gold-400 text-white font-bold text-lg flex flex-col items-center justify-center text-center hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 animate-pulse shadow-gold-glow"
+                  style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }}
+                >
+                  QUERO REJUVENESCER
+                  <span className="text-base">MINHA PELE AGORA</span>
+                  <span className="block text-xs font-normal mt-1 opacity-90">Acesso imediato por R$ 29,90</span>
+                </button>
               </div>
             </div>
 
@@ -740,14 +771,6 @@ function App() {
               <p className="text-xl font-medium text-gray-800">
                 Um protocolo completo de rejuvenescimento por menos do que um hidratante de farmácia.
               </p>
-
-              <button
-                onClick={redirectToCheckout}
-                className="w-full sm:w-auto bg-gradient-to-r from-gold-300 to-gold-400 text-white px-8 py-4 rounded-full font-bold text-xl hover:shadow-2xl hover:from-gold-400 hover:to-gold-400 transition-all duration-300 transform hover:scale-105 animate-pulse shadow-gold-glow"
-              >
-                QUERO REJUVENESCER MINHA PELE AGORA
-                <span className="block text-sm font-normal mt-1 opacity-90">Acesso imediato ao Método Pele Coreana 7D por apenas R$ 29,90</span>
-              </button>
 
               {/* Trust Badges */}
               <div className="flex flex-wrap justify-center gap-4 sm:gap-8 text-sm text-gray-600">
