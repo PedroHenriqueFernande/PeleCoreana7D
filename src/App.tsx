@@ -564,7 +564,7 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
             <p className="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
               O Método Pele Coreana 7D está disponível por tempo limitado de <span className="text-red-600 line-through decoration-red-600 decoration-2 font-bold">R$ 229,90</span> por apenas <span className="font-bold text-green-600">R$ 29,90</span>.
               <br />
-              Aproveite enquanto a oferta está liberada.
+             Esse valor é menor que o valor de um creme de farmácia. Aproveite enquanto essa oportunidade está liberada
             </p>
 
             {/* Cronômetro */}
