@@ -16,6 +16,7 @@ function App() {
   const [bonusIndex, setBonusIndex] = useState(0);
   const INITIAL_COUNTDOWN = 2 * 3600 + 47 * 60 + 54;
   const [countdown, setCountdown] = useState(INITIAL_COUNTDOWN);
+  const [allowRender, setAllowRender] = useState(false);
   const offerDate = new Intl.DateTimeFormat('pt-BR').format(new Date());
 
   const beforeAfterImages = [
@@ -72,6 +73,57 @@ function App() {
   };
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const evaluateAccess = () => {
+      const host = window.location.hostname;
+      const isLocalhost = host === 'localhost' || host === '127.0.0.1' || host === '::1';
+      const ua = navigator.userAgent || '';
+      const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+      const isSmallViewport = window.innerWidth <= 900;
+      const isMobile = isMobileUA || isSmallViewport;
+
+      setAllowRender(isMobile || isLocalhost);
+    };
+
+    evaluateAccess();
+    window.addEventListener('resize', evaluateAccess);
+    return () => window.removeEventListener('resize', evaluateAccess);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const host = window.location.hostname;
+    const isLocalhost = host === 'localhost' || host === '127.0.0.1' || host === '::1';
+    if (isLocalhost) return;
+
+    const preventContextMenu = (event: Event) => {
+      event.preventDefault();
+    };
+
+    const blockInspectShortcuts = (event: KeyboardEvent) => {
+      const key = event.key.toLowerCase();
+      const blocked =
+        (event.ctrlKey && event.shiftKey && (key === 'i' || key === 'j' || key === 'c')) ||
+        key === 'f12' ||
+        (event.ctrlKey && key === 'u');
+      if (blocked) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    };
+
+    window.addEventListener('contextmenu', preventContextMenu);
+    window.addEventListener('keydown', blockInspectShortcuts, true);
+
+    return () => {
+      window.removeEventListener('contextmenu', preventContextMenu);
+      window.removeEventListener('keydown', blockInspectShortcuts, true);
+    };
+  }, []);
+
+  useEffect(() => {
     const timer = setInterval(() => {
       setCountdown((prev) => {
         if (prev <= 0) return INITIAL_COUNTDOWN;
@@ -101,6 +153,10 @@ function App() {
 
     return () => observer.disconnect();
   }, []);
+
+  if (!allowRender) {
+    return <div className="min-h-screen bg-white" />;
+  }
 
   return (
     <div className="min-h-screen bg-white pt-12 sm:pt-14">
