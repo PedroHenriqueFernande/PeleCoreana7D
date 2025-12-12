@@ -1003,6 +1003,49 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
           </div>
         </section>
 
+        <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+          <div className="text-center space-y-6">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
+              Conheça a Especialista por Trás do Método
+            </h2>
+            
+            <div className="mt-6">
+              <img
+                src="/Esteticista.png"
+                alt="Especialista responsável pelo Método Pele Coreana 7D"
+                loading="lazy"
+                decoding="async"
+                className="w-full max-w-3xl mx-auto rounded-3xl shadow-2xl border border-gold-100 object-cover"
+              />
+            </div>
+            <div className="text-center max-w-3xl mx-auto space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base">
+              <p>
+                Meu nome é Juliana Souza, tenho 33 anos e sou formada em Biomedicina pela USP–SP, atuando há anos na área de estética.
+              </p>
+              <p>
+                Ao longo da minha trajetória profissional, sempre observei algo que me incomodou: muitas clínicas focavam apenas em vender produtos caros de grandes marcas, que prometiam resultados, mas na prática não entregavam mudanças reais. Vi isso acontecer com pacientes, amigas e mulheres próximas a mim, que investiam por meses e nada funcionava.
+              </p>
+              <p>
+                Embora eu sempre tenha trabalhado com procedimentos estéticos, eu queria oferecer um diferencial no meus serviço além dos procedimentos estéticos, que trouxesse resultados consistentes, sem depender apenas de produtos industrializados.
+              </p>
+              <p>
+                Foi a partir dessa busca que desenvolvi o Método Coreano 7D.
+              </p>
+              <p>
+                Construído a partir de estudos aprofundados e de uma breve experiência que tive na Coreia, onde pude conhecer de perto como são as técnicas e cuidado do país mais vaidoso do mundo.
+              </p>
+              <p>
+                Estudei, apliquei e adaptei essas técnicas à realidade das mulheres brasileiras, considerando clima, rotina e tipo de pele. Os resultados começaram a aparecer de forma consistente, tanto em mim quanto em mulheres que confiaram no método.
+              </p>
+              <p>
+                Hoje, meu objetivo é compartilhar esse conhecimento com mulheres que desejam recuperar a saúde, a firmeza e a aparência da pele, de forma inteligente, acessível e possível.
+              </p>
+              <p>
+                Essa é uma oportunidade de aprender um cuidado diferente, baseado em experiência, estudo e prática real.
+              </p>
+            </div>
+          </div>
+        </section>
 
         <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">
