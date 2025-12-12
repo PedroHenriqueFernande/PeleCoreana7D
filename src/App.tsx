@@ -12,7 +12,6 @@ import fotoProduto3 from './assets/Foto-do-Produto-3.png';
 
 function App() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-  const [bonusIndex, setBonusIndex] = useState(0);
   const INITIAL_COUNTDOWN = 2 * 3600 + 47 * 60 + 54;
   const [countdown, setCountdown] = useState(INITIAL_COUNTDOWN);
   const [allowRender, setAllowRender] = useState(false);
@@ -803,69 +802,45 @@ Mas se não está pronta para mudar sua pele, então este método não fará dif
               </div>
 
               <div className="space-y-4">
-                <div className="relative overflow-hidden rounded-2xl w-full min-h-[32rem]">
-                  <div
-                    className="flex transition-transform duration-500 ease-out w-full h-full"
-                    style={{ transform: `translateX(-${bonusIndex * 100}%)` }}
-                  >
-                    {bonusItems.map((item, index) => (
-                      <div key={index} className="w-full flex-shrink-0 px-2 flex justify-center items-stretch">
-                        <div className="bg-white rounded-2xl p-6 border-2 border-gold-100 shadow-lg hover:shadow-xl transition-shadow flex flex-col h-full items-center text-center gap-4 max-w-xl w-full">
-                          <div className="bg-gold-100 text-gold-600 font-bold text-sm py-1 px-3 rounded-full mb-2 shadow">
-                            {item.label}
-                          </div>
-                          <img
-                            src={item.img}
-                            alt={item.title}
-                            loading="lazy"
-                            decoding="async"
-                            className="w-full max-w-sm h-64 object-contain block mx-auto drop-shadow-lg"
-                          />
-                          <h3 className="font-serif text-xl font-bold text-gray-900">
-                            {item.title}
-                          </h3>
-                          <div className="space-y-4 flex-grow w-full">
-                            <div className="text-gray-600 text-sm leading-relaxed text-center">
-                              {item.what}
-                            </div>
-                            <div className="text-center space-y-2 w-full">
-                              <p className="font-semibold text-gray-800 text-sm">Por que acelera:</p>
-                              <p className="text-gray-600 text-sm">{item.why}</p>
-                              <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside text-left inline-block">
-                                {item.bullets.map((b, i) => (
-                                  <li key={i}>{b}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          </div>
-                          <div className="mt-4 pt-4 border-t border-gray-100 text-center w-full">
-                            <p className="text-sm text-gray-500">Valor sugerido:</p>
-                            <p className="text-red-600 font-bold line-through decoration-red-600 decoration-2">{item.value}</p>
-                            <p className="text-green-600 font-extrabold text-xl mt-1">GRÁTIS</p>
-                          </div>
+                <div className="space-y-6">
+                  {bonusItems.map((item, index) => (
+                    <div
+                      key={index}
+                      className="bg-white rounded-2xl p-6 border-2 border-gold-100 shadow-lg hover:shadow-xl transition-shadow flex flex-col h-full items-center text-center gap-4 max-w-xl w-full mx-auto"
+                    >
+                      <div className="bg-gold-100 text-gold-600 font-bold text-sm py-1 px-3 rounded-full mb-2 shadow">
+                        {item.label}
+                      </div>
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full max-w-sm h-64 object-contain block mx-auto drop-shadow-lg"
+                      />
+                      <h3 className="font-serif text-xl font-bold text-gray-900">
+                        {item.title}
+                      </h3>
+                      <div className="space-y-4 flex-grow w-full">
+                        <div className="text-gray-600 text-sm leading-relaxed text-center">
+                          {item.what}
+                        </div>
+                        <div className="text-center space-y-2 w-full">
+                          <p className="font-semibold text-gray-800 text-sm">Por que acelera:</p>
+                          <p className="text-gray-600 text-sm">{item.why}</p>
+                          <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside text-left inline-block">
+                            {item.bullets.map((b, i) => (
+                              <li key={i}>{b}</li>
+                            ))}
+                          </ul>
                         </div>
                       </div>
-                    ))}
-                  </div>
-                  <button
-                    onClick={() => setBonusIndex((prev) => (prev - 1 + bonusItems.length) % bonusItems.length)}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 px-3 py-2 rounded-full bg-gold-100 text-gold-700 font-semibold shadow hover:bg-gold-200 transition"
-                  >
-                    ‹
-                  </button>
-                  <button
-                    onClick={() => setBonusIndex((prev) => (prev + 1) % bonusItems.length)}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-2 rounded-full bg-gold-100 text-gold-700 font-semibold shadow hover:bg-gold-200 transition"
-                  >
-                    ›
-                  </button>
-                </div>
-                <div className="flex justify-center gap-2">
-                  {bonusItems.map((_, i) => (
-                    <span
-                      key={i}
-                      className={`h-2 w-2 rounded-full ${i === bonusIndex ? 'bg-gold-500' : 'bg-gold-200'}`}
-                    />
+                      <div className="mt-4 pt-4 border-t border-gray-100 text-center w-full">
+                        <p className="text-sm text-gray-500">Valor sugerido:</p>
+                        <p className="text-red-600 font-bold line-through decoration-red-600 decoration-2">{item.value}</p>
+                        <p className="text-green-600 font-extrabold text-xl mt-1">GRÁTIS</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
