@@ -60,7 +60,7 @@ function App() {
   ];
 
   const redirectToCheckout = () => {
-    window.location.href = 'https://www.ggcheckout.com/checkout/v2/khqYeQkb1NdZ8UmRtoFd';
+    window.location.href = 'https://pagamento.metodopelecoreana7d.site/checkout/v2/khqYeQkb1NdZ8UmRtoFd';
   };
 
   const scrollToOfferSection = () => {
